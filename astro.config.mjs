@@ -1,11 +1,11 @@
-import node from "@astrojs/node";
+import vercel from "@astrojs/vercel";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 import icon from "astro-icon";
 
 export default defineConfig({
   output: "server",
-  adapter: node({ mode: "standalone" }),
+  adapter: vercel(),
   i18n: {
     defaultLocale: "en",
     locales: ["en", "el"],
