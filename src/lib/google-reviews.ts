@@ -19,7 +19,7 @@ interface GooglePlaceDetailsResponse {
 export interface Testimonial {
   quote: string;
   name: string;
-  role: string;
+  rating: number;
   avatar: string;
 }
 
@@ -28,21 +28,21 @@ const PLACEHOLDER_TESTIMONIALS: Testimonial[] = [
     quote:
       "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     name: "John Doe",
-    role: "Customer",
+    rating: 5,
     avatar: "https://placehold.co/55x55",
   },
   {
     quote:
       "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
     name: "Jane Smith",
-    role: "Customer",
+    rating: 5,
     avatar: "https://placehold.co/55x55",
   },
   {
     quote:
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla.",
     name: "Bob Wilson",
-    role: "Customer",
+    rating: 4,
     avatar: "https://placehold.co/55x55",
   },
 ];
@@ -93,7 +93,7 @@ export async function getGoogleReviews(limit = 5): Promise<Testimonial[]> {
     return reviews.slice(0, limit).map((r) => ({
       quote: r.text,
       name: r.author_name,
-      role: `${r.rating}★ · ${r.relative_time_description}`,
+      rating: r.rating,
       avatar: r.profile_photo_url,
     }));
   } catch (err) {

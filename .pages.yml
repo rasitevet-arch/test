@@ -57,7 +57,7 @@ components:
     fields:
       - { name: quote, label: Quote, type: text, required: true }
       - { name: name, label: Name, type: string, required: true }
-      - { name: role, label: Role, type: string }
+      - { name: rating, label: "Rating (1-5)", type: number, default: 5 }
       - { name: avatar, label: Avatar, type: image }
 
   faqItem:

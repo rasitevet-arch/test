@@ -131,27 +131,27 @@ blocks:
       - quote: Main Insurance made the entire process seamless. Their team handled our
           business policy with incredible professionalism.
         name: Maria Papadopoulos
-        role: CEO, TechStart Greece
+        rating: 5
         avatar: /assets/img/images/home-1/content-icon-1.svg
       - quote: After a car accident, they processed my claim within 48 hours. I couldn't
           believe how fast and stress-free it was.
         name: Nikos Georgiou
-        role: Private Client
+        rating: 5
         avatar: /assets/img/images/home-1/content-icon-2.svg
       - quote: We've been with Main Insurance for 15 years. Their expertise in
           commercial coverage is unmatched in the market.
         name: Elena Dimitriou
-        role: CFO, Aegean Logistics
+        rating: 5
         avatar: /assets/img/images/home-1/content-icon-3.svg
       - quote: Their health insurance plan saved us thousands. The coverage is
           comprehensive and the support team is always available.
         name: Kostas Marinakis
-        role: Director, Olympus Hotels
+        rating: 5
         avatar: /assets/img/images/home-1/feature-icon-1.svg
       - quote: Switching to Main Insurance was the best decision for our fleet. They
           understand logistics like no other broker.
         name: Anna Theodorou
-        role: Operations Manager, FastTrack
+        rating: 4
         avatar: /assets/img/images/home-1/feature-icon-2.svg
   - component: faq
     title: Frequently Asked Questions

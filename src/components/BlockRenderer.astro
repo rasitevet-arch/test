@@ -17,12 +17,16 @@ import Approach from "@components/pages/Services/Approach.astro";
 import Description from "@components/pages/Services/Description.astro";
 import Marquee from "@components/pages/Services/Marquee.astro";
 import type { Block } from "@/content/config";
+import { getGoogleReviews } from "@/lib/google-reviews";
 
 interface Props {
   blocks: Block[];
 }
 
 const { blocks } = Astro.props;
+const googleReviews = blocks.some((b) => b.component === "testimonials")
+  ? await getGoogleReviews()
+  : [];
 ---
 
 {blocks.map((block) => {
@@ -84,8 +88,7 @@ const { blocks } = Astro.props;
     case "testimonials":
       return (
         <Testimonials
-          title={block.title}
-          testimonials={block.testimonials}
+          testimonials={googleReviews.length > 0 ? googleReviews : block.testimonials}
         />
       );
 

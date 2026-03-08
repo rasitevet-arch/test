@@ -125,23 +125,23 @@ blocks:
     testimonials:
       - quote: "Η Main Insurance έκανε όλη τη διαδικασία απλή. Η ομάδα τους χειρίστηκε το επιχειρηματικό μας συμβόλαιο με απίστευτο επαγγελματισμό."
         name: "Μαρία Παπαδοπούλου"
-        role: "CEO, TechStart Greece"
+        rating: 5
         avatar: "/assets/img/images/home-1/content-icon-1.svg"
       - quote: "Μετά από ένα τροχαίο, διεκπεραίωσαν την αποζημίωσή μου σε 48 ώρες. Δεν πίστευα πόσο γρήγορο και ανώδυνο ήταν."
         name: "Νίκος Γεωργίου"
-        role: "Ιδιώτης Πελάτης"
+        rating: 5
         avatar: "/assets/img/images/home-1/content-icon-2.svg"
       - quote: "Είμαστε με τη Main Insurance εδώ και 15 χρόνια. Η εμπειρογνωμοσύνη τους στην εμπορική κάλυψη είναι ασυναγώνιστη."
         name: "Ελένη Δημητρίου"
-        role: "CFO, Aegean Logistics"
+        rating: 5
         avatar: "/assets/img/images/home-1/content-icon-3.svg"
       - quote: "Το πρόγραμμα ασφάλειας υγείας μας εξοικονόμησε χιλιάδες. Η κάλυψη είναι ολοκληρωμένη και η ομάδα υποστήριξης πάντα διαθέσιμη."
         name: "Κώστας Μαρινάκης"
-        role: "Διευθυντής, Olympus Hotels"
+        rating: 5
         avatar: "/assets/img/images/home-1/feature-icon-1.svg"
       - quote: "Η μετάβαση στη Main Insurance ήταν η καλύτερη απόφαση για τον στόλο μας. Κατανοούν τα logistics όσο κανένας άλλος μεσίτης."
         name: "Άννα Θεοδώρου"
-        role: "Υπεύθυνη Λειτουργιών, FastTrack"
+        rating: 4
         avatar: "/assets/img/images/home-1/feature-icon-2.svg"
 
   - component: faq

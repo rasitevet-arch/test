@@ -96,7 +96,7 @@ const testimonialsBlock = z.object({
       z.object({
         quote: z.string(),
         name: z.string(),
-        role: z.string().default(""),
+        rating: z.number().min(1).max(5).default(5),
         avatar: z.string().default(""),
       }),
     )
