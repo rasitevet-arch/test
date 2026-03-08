@@ -4,6 +4,20 @@ seo:
   title: "Main Insurance — Αξιόπιστη Ασφαλιστική Προστασία για Ιδιώτες & Επιχειρήσεις"
   description: "Κορυφαίος ασφαλιστικός σύμβουλος στην Ελλάδα. Αυτοκινήτου, κατοικίας, υγείας & επιχειρήσεων. Ζητήστε δωρεάν προσφορά."
   image: /assets/img/og-default.jpg
+  keywords:
+    - ασφάλεια ελλάδα
+    - ασφάλεια αυτοκινήτου
+    - ασφάλεια κατοικίας
+    - ασφάλεια υγείας
+    - ασφάλεια επιχειρήσεων
+  robots: "index, follow"
+  twitter:
+    card: summary_large_image
+    site: "@maininsurance"
+  og:
+    type: website
+    siteName: Main Insurance
+    locale: el_GR
 isLanding: true
 blocks:
   - component: hero

@@ -4,6 +4,18 @@ seo:
   title: Contact Main Insurance — Get a Free Quote
   description: "Reach out to our Athens team for a personalized insurance quote. Call, email, or visit our office."
   image: /assets/img/og-default.jpg
+  keywords:
+    - contact insurance athens
+    - insurance quote greece
+    - main insurance phone
+  robots: "index, follow"
+  twitter:
+    card: summary_large_image
+    site: "@maininsurance"
+  og:
+    type: website
+    siteName: Main Insurance
+    locale: en_US
 isLanding: false
 breadcrumbTitle: "Contact Us"
 breadcrumbCurrent: "Contact"

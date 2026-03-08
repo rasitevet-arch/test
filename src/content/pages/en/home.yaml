@@ -5,6 +5,21 @@ seo:
   title: Main Insurance — Trusted Protection for Individuals & Businesses
   description: Leading insurance broker in Greece offering auto, home, health, and business coverage. Get a free quote today.
   image: /assets/img/og-default.jpg
+  keywords:
+    - insurance greece
+    - auto insurance
+    - home insurance
+    - health insurance
+    - business insurance
+    - main insurance
+  robots: "index, follow"
+  twitter:
+    card: summary_large_image
+    site: "@maininsurance"
+  og:
+    type: website
+    siteName: Main Insurance
+    locale: en_US
 isLanding: true
 blocks:
   - component: hero

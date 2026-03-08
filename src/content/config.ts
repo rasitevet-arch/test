@@ -272,6 +272,25 @@ const seoSchema = z
     title: z.string(),
     description: z.string().optional(),
     image: z.string().optional(),
+    keywords: z.array(z.string()).default([]),
+    robots: z.string().default("index, follow"),
+    canonical: z.string().optional(),
+    twitter: z
+      .object({
+        card: z
+          .enum(["summary", "summary_large_image", "app", "player"])
+          .default("summary_large_image"),
+        site: z.string().optional(),
+        creator: z.string().optional(),
+      })
+      .default({}),
+    og: z
+      .object({
+        type: z.string().default("website"),
+        siteName: z.string().optional(),
+        locale: z.string().optional(),
+      })
+      .default({}),
   })
   .optional();
 

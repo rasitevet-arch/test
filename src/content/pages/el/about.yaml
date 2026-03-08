@@ -4,6 +4,18 @@ seo:
   title: "Σχετικά με τη Main Insurance — Η Ιστορία & οι Αξίες μας"
   description: "30+ χρόνια εμπειρίας στην ασφαλιστική αγορά. Γνωρίστε την ομάδα που προστατεύει αυτά που σας ενδιαφέρουν."
   image: /assets/img/og-default.jpg
+  keywords:
+    - σχετικά main insurance
+    - ασφαλιστικός σύμβουλος αθήνα
+    - ομάδα ασφάλισης
+  robots: "index, follow"
+  twitter:
+    card: summary_large_image
+    site: "@maininsurance"
+  og:
+    type: website
+    siteName: Main Insurance
+    locale: el_GR
 isLanding: false
 breadcrumbTitle: "Σχετικά με Εμάς"
 breadcrumbCurrent: "Σχετικά"

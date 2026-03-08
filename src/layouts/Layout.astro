@@ -15,36 +15,56 @@ interface Props {
 
 const { title, description, seo } = Astro.props;
 
+const locale = Astro.currentLocale ?? "en";
 const pageTitle = seo?.title ?? title ?? SITE_NAME;
 const metaTitle = pageTitle.includes(SITE_NAME) ? pageTitle : `${pageTitle} | ${SITE_NAME}`;
 const metaDescription = seo?.description ?? description ?? "";
-const ogImage = seo?.image ?? "/assets/img/og-default.jpg";
-const canonicalUrl = new URL(Astro.url.pathname, SITE_URL).href;
+const ogImage = seo?.image
+  ? new URL(seo.image, SITE_URL).href
+  : `${SITE_URL}/assets/img/og-default.jpg`;
+const canonicalUrl = seo?.canonical ?? new URL(Astro.url.pathname, SITE_URL).href;
+const keywords = seo?.keywords ?? [];
+const robots = seo?.robots ?? "index, follow";
+const twitterCard = seo?.twitter?.card ?? "summary_large_image";
+const twitterSite = seo?.twitter?.site;
+const twitterCreator = seo?.twitter?.creator;
+const ogType = seo?.og?.type ?? "website";
+const ogSiteName = seo?.og?.siteName ?? SITE_NAME;
+const ogLocale = seo?.og?.locale ?? (locale === "el" ? "el_GR" : "en_US");
 ---
 
 <!doctype html>
-<html lang={Astro.currentLocale ?? "en"} class="dark">
+<html lang={locale} class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="canonical" href={canonicalUrl} />
+    <meta name="robots" content={robots} />
 
     <Seo
       title={metaTitle}
       description={metaDescription}
+      keywords={keywords}
       icon="/favicon.ico"
       colorScheme="dark"
+      robots={robots}
       facebook={{
         image: ogImage,
         url: canonicalUrl,
-        type: "website",
+        type: ogType,
       }}
       twitter={{
         image: ogImage,
-        card: "summary_large_image",
+        card: twitterCard,
+        site: twitterSite,
       }}
     />
+
+    {/* Extra OG tags not covered by astro-seo-meta */}
+    <meta property="og:site_name" content={ogSiteName} />
+    <meta property="og:locale" content={ogLocale} />
+    {twitterCreator && <meta name="twitter:creator" content={twitterCreator} />}
 
     <Schema
       item={{
