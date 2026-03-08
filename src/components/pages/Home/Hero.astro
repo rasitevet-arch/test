@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 interface Props {
   title?: string;
   description?: string;
@@ -42,7 +44,7 @@ const {
         </div>
       </div>
       {heroElements.map((el) => (
-        <img src={el.src} alt={el.alt} width={el.width} height={el.height} class={`shape ${el.class}`} />
+        <Image src={el.src} alt={el.alt} width={el.width} height={el.height} class={`shape ${el.class}`} />
       ))}
     </div>
   </div>

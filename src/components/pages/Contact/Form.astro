@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 interface Props {
   contactItems?: { icon: string; iconAlt: string; title: string; content: string }[];
   formAction?: string;
@@ -37,7 +39,7 @@ const {
           {contactItems.map((item) => (
             <li class="flex items-start gap-7">
               <div class="h-[60px] w-auto">
-                <img src={item.icon} alt={item.iconAlt} width="65" height="60" />
+                <Image src={item.icon} alt={item.iconAlt} width={65} height={60} />
               </div>
               <div class="flex-1">
                 <span class="display-heading display-heading-4 mb-4 block">{item.title}</span>

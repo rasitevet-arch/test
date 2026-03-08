@@ -1,5 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
+import bgShape1 from "@/assets/images/shared/background-shape-1.svg";
+import iconUnion from "@/assets/images/shared/icon-union.svg";
 
 interface Props {
   title?: string;
@@ -17,11 +20,11 @@ const { title = "Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing", buttonLink 
         <div class="sm:max-w-[820px] sm:flex-1">
           <h2>
             {title}
-            <img
-              src="/assets/img/images/home-5/icon-union.svg"
+            <Image
+              src={iconUnion}
               alt="icon-union"
-              width="83"
-              height="80"
+              width={83}
+              height={80}
               class="inline h-auto w-10 lg:w-16"
             />
           </h2>
@@ -43,11 +46,11 @@ const { title = "Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing", buttonLink 
         </a>
       </div>
     </div>
-    <img
-      src="/assets/img/images/home-5/background-shape-1.svg"
+    <Image
+      src={bgShape1}
       alt="background-shape-1"
-      width="273"
-      height="204"
+      width={273}
+      height={204}
       class="absolute left-5 top-1 -z-10 hidden xxxl:inline-block"
     />
   </div>

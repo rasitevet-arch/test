@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 
 interface Props {
@@ -36,7 +37,7 @@ const {
         <h2 class="mb-6">{title}</h2>
         <p>{description}</p>
         <div class="relative mb-10 mt-[50px] flex items-center justify-center overflow-hidden rounded-[16px] border-b-8 border-r-8 border-txt-secondary lg:mb-[80px]">
-          <img src={image} alt="service-details-img" width="1282" height="584" class="min-h-96 w-full border border-txt-secondary object-cover" />
+          <Image src={image} alt="service-details-img" width={1282} height={584} class="min-h-96 w-full border border-txt-secondary object-cover" />
         </div>
         <div>
           <h2 class="mb-5 max-w-4xl">{approachTitle}</h2>

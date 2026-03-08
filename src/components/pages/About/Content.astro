@@ -1,4 +1,7 @@
 ---
+import { Image } from "astro:assets";
+import bgShape2 from "@/assets/images/shared/background-shape-2.svg";
+
 interface Props {
   title?: string;
   description?: string;
@@ -28,7 +31,7 @@ const {
       <div class="grid grid-cols-1 gap-y-20 lg:gap-y-[100px] xl:gap-y-[130px]">
         <div class="grid grid-cols-1 items-center gap-10 md:gap-[60px] lg:grid-cols-2 xl:grid-cols-[minmax(0,0.8fr)_1fr] xl:gap-20">
           <div class="img-shadow relative z-10 order-2 mx-auto inline-flex max-w-[500px] items-center justify-center lg:order-1 lg:max-w-full">
-            <img src={image} alt="content-img" width="530" height="553" class="max-w-full rounded-[10px] border border-txt-secondary" />
+            <Image src={image} alt="content-img" width={530} height={553} class="max-w-full rounded-[10px] border border-txt-secondary" />
           </div>
           <div class="order-1 lg:order-2">
             <div class="mb-[50px]">
@@ -50,7 +53,7 @@ const {
         </div>
       </div>
     </div>
-    <img src="/assets/img/images/home-5/background-shape-2.svg" alt="background-shape-2" width="174" height="171" class="absolute left-28 top-[60px] -z-10 hidden h-auto max-w-[153px] xxxl:inline-block" />
+    <Image src={bgShape2} alt="background-shape-2" width={174} height={171} class="absolute left-28 top-[60px] -z-10 hidden h-auto max-w-[153px] xxxl:inline-block" />
   </div>
 </section>
 

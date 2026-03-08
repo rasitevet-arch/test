@@ -1,5 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
+import logo from "@/assets/images/brand/logo.png";
+import logoAlter from "@/assets/images/brand/logo-alter.png";
 import { getServicesList, localePath } from "@/lib/cms";
 import type { Locale } from "@/types/cms";
 
@@ -22,11 +25,11 @@ const services = await getServicesList(locale);
   <div class="container">
     <div class="flex items-center justify-between">
       <a href={localePath("", locale)} class="shrink-0">
-        <img
-          src={isLanding ? "/assets/img/images/logo.png" : "/assets/img/images/logo-alter.png"}
-          alt="logo"
-          width="112"
-          height="40"
+        <Image
+          src={isLanding ? logo : logoAlter}
+          alt="Main Insurance logo"
+          width={112}
+          height={40}
         />
       </a>
 
