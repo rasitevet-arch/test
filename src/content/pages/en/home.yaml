@@ -13,13 +13,11 @@ seo:
     - business insurance
     - main insurance
   robots: "index, follow"
-  twitter:
-    card: summary_large_image
-    site: "@maininsurance"
-  og:
-    type: website
-    siteName: Main Insurance
-    locale: en_US
+  twitterCard: summary_large_image
+  twitterSite: "@maininsurance"
+  ogType: website
+  ogSiteName: Main Insurance
+  ogLocale: en_US
 isLanding: true
 blocks:
   - component: hero

@@ -9,13 +9,11 @@ seo:
     - προσφορά ασφάλισης
     - main insurance τηλέφωνο
   robots: "index, follow"
-  twitter:
-    card: summary_large_image
-    site: "@maininsurance"
-  og:
-    type: website
-    siteName: Main Insurance
-    locale: el_GR
+  twitterCard: summary_large_image
+  twitterSite: "@maininsurance"
+  ogType: website
+  ogSiteName: Main Insurance
+  ogLocale: el_GR
 isLanding: false
 breadcrumbTitle: "Επικοινωνία"
 breadcrumbCurrent: "Επικοινωνία"

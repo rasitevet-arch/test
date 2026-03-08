@@ -10,13 +10,11 @@ seo:
     - liability insurance
     - employee benefits
   robots: "index, follow"
-  twitter:
-    card: summary_large_image
-    site: "@maininsurance"
-  og:
-    type: article
-    siteName: Main Insurance
-    locale: en_US
+  twitterCard: summary_large_image
+  twitterSite: "@maininsurance"
+  ogType: article
+  ogSiteName: Main Insurance
+  ogLocale: en_US
 isLanding: false
 breadcrumbTitle: "Business Insurance"
 breadcrumbCurrent: "Business Insurance"

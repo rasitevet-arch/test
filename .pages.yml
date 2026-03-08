@@ -123,46 +123,6 @@ components:
       - { name: title, label: Title, type: string, required: true }
       - { name: description, label: Description, type: text, required: true }
 
-  seoTwitter:
-    label: Twitter Card
-    type: object
-    fields:
-      - name: card
-        label: Card Type
-        type: select
-        options:
-          values:
-            - value: summary
-              label: Summary
-            - value: summary_large_image
-              label: Summary Large Image
-            - value: app
-              label: App
-            - value: player
-              label: Player
-      - { name: site, label: "Site Handle (e.g. @maininsurance)", type: string }
-      - { name: creator, label: "Creator Handle (e.g. @author)", type: string }
-
-  seoOg:
-    label: Open Graph
-    type: object
-    fields:
-      - name: type
-        label: OG Type
-        type: select
-        options:
-          values:
-            - value: website
-              label: Website
-            - value: article
-              label: Article
-            - value: profile
-              label: Profile
-            - value: product
-              label: Product
-      - { name: siteName, label: Site Name, type: string }
-      - { name: locale, label: "Locale (e.g. en_US, el_GR)", type: string }
-
   seoObject:
     label: SEO Settings
     type: object
@@ -171,26 +131,14 @@ components:
       - { name: description, label: Meta Description, type: text }
       - { name: image, label: OG / Social Image, type: image }
       - { name: keywords, label: Keywords, type: string, list: true }
-      - name: robots
-        label: Robots Directive
-        type: select
-        options:
-          values:
-            - value: "index, follow"
-              label: "Index, Follow (default)"
-            - value: "noindex, follow"
-              label: "Noindex, Follow"
-            - value: "index, nofollow"
-              label: "Index, Nofollow"
-            - value: "noindex, nofollow"
-              label: "Noindex, Nofollow"
+      - { name: robots, label: "Robots (e.g. index follow)", type: string }
       - { name: canonical, label: Canonical URL Override, type: string }
-      - name: twitter
-        label: Twitter Card
-        component: seoTwitter
-      - name: og
-        label: Open Graph
-        component: seoOg
+      - { name: twitterCard, label: "Twitter Card Type (summary or summary_large_image)", type: string }
+      - { name: twitterSite, label: "Twitter Site Handle (e.g. @maininsurance)", type: string }
+      - { name: twitterCreator, label: "Twitter Creator Handle", type: string }
+      - { name: ogType, label: "OG Type (website or article)", type: string }
+      - { name: ogSiteName, label: OG Site Name, type: string }
+      - { name: ogLocale, label: "OG Locale (e.g. en_US or el_GR)", type: string }
 
   breadcrumbPathItem:
     label: Breadcrumb

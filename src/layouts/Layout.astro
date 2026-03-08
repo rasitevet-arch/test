@@ -25,12 +25,12 @@ const ogImage = seo?.image
 const canonicalUrl = seo?.canonical ?? new URL(Astro.url.pathname, SITE_URL).href;
 const keywords = seo?.keywords ?? [];
 const robots = seo?.robots ?? "index, follow";
-const twitterCard = seo?.twitter?.card ?? "summary_large_image";
-const twitterSite = seo?.twitter?.site;
-const twitterCreator = seo?.twitter?.creator;
-const ogType = seo?.og?.type ?? "website";
-const ogSiteName = seo?.og?.siteName ?? SITE_NAME;
-const ogLocale = seo?.og?.locale ?? (locale === "el" ? "el_GR" : "en_US");
+const twitterCard = seo?.twitterCard ?? "summary_large_image";
+const twitterSite = seo?.twitterSite;
+const twitterCreator = seo?.twitterCreator;
+const ogType = seo?.ogType ?? "website";
+const ogSiteName = seo?.ogSiteName ?? SITE_NAME;
+const ogLocale = seo?.ogLocale ?? (locale === "el" ? "el_GR" : "en_US");
 ---
 
 <!doctype html>

@@ -275,22 +275,12 @@ const seoSchema = z
     keywords: z.array(z.string()).default([]),
     robots: z.string().default("index, follow"),
     canonical: z.string().optional(),
-    twitter: z
-      .object({
-        card: z
-          .enum(["summary", "summary_large_image", "app", "player"])
-          .default("summary_large_image"),
-        site: z.string().optional(),
-        creator: z.string().optional(),
-      })
-      .default({}),
-    og: z
-      .object({
-        type: z.string().default("website"),
-        siteName: z.string().optional(),
-        locale: z.string().optional(),
-      })
-      .default({}),
+    twitterCard: z.string().default("summary_large_image"),
+    twitterSite: z.string().optional(),
+    twitterCreator: z.string().optional(),
+    ogType: z.string().default("website"),
+    ogSiteName: z.string().optional(),
+    ogLocale: z.string().optional(),
   })
   .optional();
 
