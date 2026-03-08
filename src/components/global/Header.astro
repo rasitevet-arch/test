@@ -97,6 +97,25 @@ const services = await getServicesList(locale);
       )}
 
       <div class="flex items-center gap-x-6">
+        {/* Language switcher */}
+        {locale === "en" ? (
+          <a
+            href={`/el${Astro.url.pathname === "/" ? "" : Astro.url.pathname}`}
+            class="js-lang-switch text-sm font-semibold text-white hover:text-accent"
+            data-lang="el"
+          >
+            GR
+          </a>
+        ) : (
+          <a
+            href={Astro.url.pathname.replace(/^\/el\/?/, "/") || "/"}
+            class="js-lang-switch text-sm font-semibold text-white hover:text-accent"
+            data-lang="en"
+          >
+            EN
+          </a>
+        )}
+
         <a
           href={localePath("contact", locale)}
           class="btn btn-primary relative hidden min-w-0 px-[30px] py-[10px] sm:inline-flex"
@@ -150,6 +169,20 @@ const services = await getServicesList(locale);
       });
     });
   }
+})();
+</script>
+
+<script is:inline>
+(function () {
+  document.querySelectorAll(".js-lang-switch").forEach(function (el) {
+    el.addEventListener("click", function (e) {
+      var lang = el.getAttribute("data-lang");
+      if (lang) {
+        document.cookie =
+          "preferred_lang=" + lang + "; path=/; max-age=31536000; SameSite=Lax";
+      }
+    });
+  });
 })();
 </script>
 
