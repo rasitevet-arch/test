@@ -1,6 +1,6 @@
 media:
-  input: public/assets/img/cms
-  output: /assets/img/cms
+  input: public/assets/img
+  output: /assets/img
   categories: [image]
 
 # ---------------------------------------------------------------------------
