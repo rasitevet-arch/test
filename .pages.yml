@@ -131,11 +131,15 @@ components:
         label: Card Type
         type: select
         options:
-          - summary
-          - summary_large_image
-          - app
-          - player
-        default: summary_large_image
+          values:
+            - value: summary
+              label: Summary
+            - value: summary_large_image
+              label: Summary Large Image
+            - value: app
+              label: App
+            - value: player
+              label: Player
       - { name: site, label: "Site Handle (e.g. @maininsurance)", type: string }
       - { name: creator, label: "Creator Handle (e.g. @author)", type: string }
 
@@ -147,11 +151,15 @@ components:
         label: OG Type
         type: select
         options:
-          - website
-          - article
-          - profile
-          - product
-        default: website
+          values:
+            - value: website
+              label: Website
+            - value: article
+              label: Article
+            - value: profile
+              label: Profile
+            - value: product
+              label: Product
       - { name: siteName, label: Site Name, type: string }
       - { name: locale, label: "Locale (e.g. en_US, el_GR)", type: string }
 
@@ -167,11 +175,15 @@ components:
         label: Robots Directive
         type: select
         options:
-          - "index, follow"
-          - "noindex, follow"
-          - "index, nofollow"
-          - "noindex, nofollow"
-        default: "index, follow"
+          values:
+            - value: "index, follow"
+              label: "Index, Follow (default)"
+            - value: "noindex, follow"
+              label: "Noindex, Follow"
+            - value: "index, nofollow"
+              label: "Index, Nofollow"
+            - value: "noindex, nofollow"
+              label: "Noindex, Nofollow"
       - { name: canonical, label: Canonical URL Override, type: string }
       - name: twitter
         label: Twitter Card
