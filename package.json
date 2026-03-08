@@ -20,6 +20,7 @@
     "@tailwindcss/vite": "^4.2.1",
     "astro": "^5.18.0",
     "astro-icon": "^1.1.5",
+    "astro-obfuscate": "^0.0.6",
     "astro-seo-meta": "^5.2.0",
     "astro-seo-schema": "^5.2.0",
     "schema-dts": "^1.1.5",

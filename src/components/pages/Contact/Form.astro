@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import { ObfuscatedEmail, ObfuscatedPhone } from "astro-obfuscate/components";
 
 interface Props {
   contactItems?: { icon: string; iconAlt: string; title: string; content: string }[];
@@ -29,6 +30,9 @@ const {
   ],
   formAction = "#",
 } = Astro.props;
+
+const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const phoneRe = /^\+?[\d\s()-]{7,}$/;
 ---
 
 <section class="section-faq">
@@ -36,17 +40,28 @@ const {
     <div class="container">
       <div class="grid grid-cols-1 items-center gap-14 lg:grid-cols-[minmax(0,0.8fr)_1fr]">
         <ul class="flex flex-col gap-y-[60px]">
-          {contactItems.map((item) => (
-            <li class="flex items-start gap-7">
-              <div class="h-[60px] w-auto">
-                <Image src={item.icon} alt={item.iconAlt} width={65} height={60} />
-              </div>
-              <div class="flex-1">
-                <span class="display-heading display-heading-4 mb-4 block">{item.title}</span>
-                <p set:html={item.content} />
-              </div>
-            </li>
-          ))}
+          {contactItems.map((item) => {
+            const text = item.content.trim();
+            const isEmail = emailRe.test(text);
+            const isPhone = !isEmail && phoneRe.test(text);
+            return (
+              <li class="flex items-start gap-7">
+                <div class="h-[60px] w-auto">
+                  <Image src={item.icon} alt={item.iconAlt} width={65} height={60} />
+                </div>
+                <div class="flex-1">
+                  <span class="display-heading display-heading-4 mb-4 block">{item.title}</span>
+                  {isPhone ? (
+                    <p><ObfuscatedPhone phone={text.replace(/\s/g, "")} text={text} /></p>
+                  ) : isEmail ? (
+                    <p><ObfuscatedEmail email={text} /></p>
+                  ) : (
+                    <p set:html={text} />
+                  )}
+                </div>
+              </li>
+            );
+          })}
         </ul>
         <div class="rounded-[10px] bg-white p-10 shadow-custom-1">
           <h3 class="mb-8">Send us a message</h3>

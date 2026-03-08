@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
+import { ObfuscatedEmail, ObfuscatedPhone } from "astro-obfuscate/components";
 
 interface Props {
   title?: string;
@@ -21,6 +22,12 @@ const {
     { icon: "lets-icons:pin", label: "Address", value: "123 Lorem Ipsum St.", href: "#" },
   ],
 } = Astro.props;
+
+function parseContact(item: { href: string; value: string }) {
+  if (item.href.startsWith("tel:")) return { type: "phone" as const, raw: item.href.slice(4) };
+  if (item.href.startsWith("mailto:")) return { type: "email" as const, raw: item.href.slice(7) };
+  return null;
+}
 ---
 
 <section class="section-contact">
@@ -34,15 +41,24 @@ const {
               <p class="mt-6">{description}</p>
             </div>
             <ul class="grid grid-cols-1 gap-y-6">
-              {contactItems.map((item) => (
-                <li class="flex gap-x-4">
-                  <span class="text-accent"><Icon name={item.icon} class="h-6 w-6" /></span>
-                  <div class="flex-1">
-                    <span class="display-heading display-heading-5 mb-1.5 block text-white">{item.label}</span>
-                    <a href={item.href} class="hover:text-accent">{item.value}</a>
-                  </div>
-                </li>
-              ))}
+              {contactItems.map((item) => {
+                const contact = parseContact(item);
+                return (
+                  <li class="flex gap-x-4">
+                    <span class="text-accent"><Icon name={item.icon} class="h-6 w-6" /></span>
+                    <div class="flex-1">
+                      <span class="display-heading display-heading-5 mb-1.5 block text-white">{item.label}</span>
+                      {contact?.type === "phone" ? (
+                        <ObfuscatedPhone phone={contact.raw} text={item.value} class="hover:text-accent" />
+                      ) : contact?.type === "email" ? (
+                        <ObfuscatedEmail email={contact.raw} text={item.value} class="hover:text-accent" />
+                      ) : (
+                        <a href={item.href} class="hover:text-accent">{item.value}</a>
+                      )}
+                    </div>
+                  </li>
+                );
+              })}
             </ul>
           </div>
           <div class="rounded-[10px] bg-white p-[30px]">
