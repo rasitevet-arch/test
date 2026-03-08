@@ -36,6 +36,7 @@
 @layer base {
   html {
     @apply scroll-smooth;
+    color-scheme: light;
   }
   body,
   .page-wrapper {

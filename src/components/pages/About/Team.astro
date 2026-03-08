@@ -1,6 +1,4 @@
 ---
-import { Image } from "astro:assets";
-
 interface Props {
   title?: string;
   buttonLink?: string;
@@ -46,7 +44,7 @@ const {
           <li class="group xl:odd:translate-y-[120px]">
             <a href={member.link} class="flex flex-col items-center">
               <div class="flex h-[330px] overflow-hidden rounded-lg group-odd:bg-accent/20 group-even:bg-accent/40">
-                <Image src={member.image} alt={member.name} width={306} height={330} class="mx-auto mt-auto" />
+                <img src={member.image} alt={member.name} width={306} height={330} class="mx-auto mt-auto" loading="lazy" />
               </div>
               <div class="mt-6">
                 <span class="display-heading display-heading-5 block">{member.name}</span>

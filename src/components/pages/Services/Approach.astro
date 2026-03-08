@@ -36,7 +36,7 @@ const {
       <div class="grid grid-cols-1 gap-y-20 lg:gap-y-[100px] xl:gap-y-[130px]">
         <div class="grid grid-cols-1 items-center gap-10 md:gap-[60px] lg:grid-cols-2 xl:grid-cols-[1fr_minmax(0,0.8fr)] xl:gap-20">
           <div class="img-shadow relative z-10 order-2 mx-auto inline-flex max-w-[500px] items-center justify-center lg:max-w-full">
-            <Image src={image} alt="service-details-content-img" width={484} height={596} class="max-w-full rounded-[10px] border border-txt-secondary" />
+            <img src={image} alt="service-details-content-img" width={484} height={596} class="max-w-full rounded-[10px] border border-txt-secondary" loading="lazy" />
           </div>
           <div class="order-1">
             <div class="mb-[50px]">
@@ -52,7 +52,7 @@ const {
                 <li>
                   <div class="flex items-start gap-4">
                     <div class="inline-flex h-[60px] w-[60px] items-center justify-center rounded-full bg-accent">
-                      <Image src={item.icon} alt={item.iconAlt} width={35} height={35} />
+                      <img src={item.icon} alt={item.iconAlt} width={35} height={35} loading="lazy" />
                     </div>
                     <div class="flex-1">
                       <div class="display-heading display-heading-4 mb-4">{item.title}</div>

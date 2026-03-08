@@ -1,6 +1,4 @@
 ---
-import { Image } from "astro:assets";
-
 interface Props {
   title?: string;
   paragraphs?: string[];
@@ -28,7 +26,7 @@ const {
         <div class="grid grid-cols-1 gap-y-20 lg:gap-y-[100px] xl:gap-y-[130px]">
           <div class="grid grid-cols-1 items-center gap-10 md:gap-[60px] lg:grid-cols-2 xl:grid-cols-[1fr_minmax(0,0.8fr)] xl:gap-20">
             <div class="relative z-10 order-2 mx-auto inline-flex max-w-[500px] items-center justify-center lg:max-w-full">
-              <Image src={image.src} alt={image.alt} width={image.width} height={image.height} class="max-w-full" />
+              <img src={image.src} alt={image.alt} width={image.width} height={image.height} class="max-w-full" loading="lazy" />
             </div>
             <div class="order-1">
               <div class="mb-[50px]">

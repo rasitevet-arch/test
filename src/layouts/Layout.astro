@@ -34,7 +34,7 @@ const ogLocale = seo?.ogLocale ?? (locale === "el" ? "el_GR" : "en_US");
 ---
 
 <!doctype html>
-<html lang={locale} class="dark">
+<html lang={locale}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -47,7 +47,7 @@ const ogLocale = seo?.ogLocale ?? (locale === "el" ? "el_GR" : "en_US");
       description={metaDescription}
       keywords={keywords}
       icon="/favicon.ico"
-      colorScheme="dark"
+      colorScheme="light"
       robots={robots}
       facebook={{
         image: ogImage,

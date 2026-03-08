@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import { ObfuscatedEmail, ObfuscatedPhone } from "astro-obfuscate/components";
 
 interface Props {
@@ -47,7 +46,7 @@ const phoneRe = /^\+?[\d\s()-]{7,}$/;
             return (
               <li class="flex items-start gap-7">
                 <div class="h-[60px] w-auto">
-                  <Image src={item.icon} alt={item.iconAlt} width={65} height={60} />
+                  <img src={item.icon} alt={item.iconAlt} width={65} height={60} loading="lazy" />
                 </div>
                 <div class="flex-1">
                   <span class="display-heading display-heading-4 mb-4 block">{item.title}</span>

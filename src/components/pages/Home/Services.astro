@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 
 interface Props {
@@ -45,7 +44,7 @@ const {
               <div class="group">
                 <div class="bg-bg-secondary p-[30px]">
                   <div class="h-14 w-14">
-                    <Image src={service.icon} alt={service.name} width={55} height={55} />
+                    <img src={service.icon} alt={service.name} width={55} height={55} loading="lazy" />
                   </div>
                   <div class="mt-[30px]">
                     <div class="display-heading display-heading-4 mb-4">{service.name}</div>

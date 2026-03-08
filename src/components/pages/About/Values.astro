@@ -1,6 +1,4 @@
 ---
-import { Image } from "astro:assets";
-
 interface Props {
   title?: string;
   values?: {
@@ -56,7 +54,7 @@ const {
             <li class={`${i === 0 ? 'relative z-10' : ''}`}>
               <div class="hover-shadow">
                 <div class="relative z-10 rounded-[10px] border border-txt-secondary bg-white p-[30px]">
-                  <Image src={v.icon} alt={v.iconAlt} width={v.iconWidth} height={v.iconHeight} class="h-[70px] w-auto" />
+                  <img src={v.icon} alt={v.iconAlt} width={v.iconWidth} height={v.iconHeight} class="h-[70px] w-auto" loading="lazy" />
                   <div class="display-heading display-heading-4 mb-4 mt-[30px]">{v.name}</div>
                   <p>{v.description}</p>
                 </div>

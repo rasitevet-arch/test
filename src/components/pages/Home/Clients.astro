@@ -1,6 +1,4 @@
 ---
-import { Image } from "astro:assets";
-
 interface Props {
   title?: string;
   clients?: { src: string; alt: string; width: number; height: number }[];
@@ -27,7 +25,7 @@ const {
         <div class="swiper-wrapper">
           {clients.map((client) => (
             <div class="swiper-slide flex justify-center">
-              <Image src={client.src} alt={client.alt} width={client.width} height={client.height} />
+              <img src={client.src} alt={client.alt} width={client.width} height={client.height} loading="lazy" />
             </div>
           ))}
         </div>
