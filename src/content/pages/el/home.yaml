@@ -1,5 +1,9 @@
 title: "Main Insurance — Αξιόπιστη Προστασία"
 description: "Η Main Insurance παρέχει ολοκληρωμένη ασφαλιστική κάλυψη για ιδιώτες και επιχειρήσεις σε όλη την Ελλάδα."
+seo:
+  title: "Main Insurance — Αξιόπιστη Ασφαλιστική Προστασία για Ιδιώτες & Επιχειρήσεις"
+  description: "Κορυφαίος ασφαλιστικός σύμβουλος στην Ελλάδα. Αυτοκινήτου, κατοικίας, υγείας & επιχειρήσεων. Ζητήστε δωρεάν προσφορά."
+  image: /assets/img/og-default.jpg
 isLanding: true
 blocks:
   - component: hero

@@ -1,5 +1,9 @@
 title: "Σχετικά με Εμάς"
 description: "Μάθετε για την ιστορία, τις αξίες και την ομάδα της Main Insurance."
+seo:
+  title: "Σχετικά με τη Main Insurance — Η Ιστορία & οι Αξίες μας"
+  description: "30+ χρόνια εμπειρίας στην ασφαλιστική αγορά. Γνωρίστε την ομάδα που προστατεύει αυτά που σας ενδιαφέρουν."
+  image: /assets/img/og-default.jpg
 isLanding: false
 breadcrumbTitle: "Σχετικά με Εμάς"
 breadcrumbCurrent: "Σχετικά"

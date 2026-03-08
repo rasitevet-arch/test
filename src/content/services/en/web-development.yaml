@@ -1,5 +1,9 @@
 title: "Business Insurance"
 description: "Comprehensive commercial insurance solutions tailored for Greek businesses of all sizes."
+seo:
+  title: Business Insurance — Tailored Commercial Coverage
+  description: "Protect your Greek business with comprehensive liability, property, and employee benefit insurance solutions."
+  image: /assets/img/og-default.jpg
 isLanding: false
 breadcrumbTitle: "Business Insurance"
 breadcrumbCurrent: "Business Insurance"

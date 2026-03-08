@@ -264,6 +264,18 @@ const blockSchema = z.discriminatedUnion("component", [
 ]);
 
 // ---------------------------------------------------------------------------
+// SEO metadata
+// ---------------------------------------------------------------------------
+
+const seoSchema = z
+  .object({
+    title: z.string(),
+    description: z.string().optional(),
+    image: z.string().optional(),
+  })
+  .optional();
+
+// ---------------------------------------------------------------------------
 // Breadcrumb path item
 // ---------------------------------------------------------------------------
 
@@ -279,6 +291,7 @@ const breadcrumbPath = z.object({
 const pageSchema = z.object({
   title: z.string(),
   description: z.string().optional(),
+  seo: seoSchema,
   isLanding: z.boolean().default(false),
   breadcrumbTitle: z.string().optional(),
   breadcrumbCurrent: z.string().optional(),
@@ -308,3 +321,4 @@ export const collections = { pages, services };
 
 export type Block = z.infer<typeof blockSchema>;
 export type PageData = z.infer<typeof pageSchema>;
+export type SeoData = z.infer<typeof seoSchema>;

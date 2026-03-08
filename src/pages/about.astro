@@ -12,7 +12,7 @@ const page = await getPageData("about", locale);
 if (!page) return Astro.redirect("/error-404");
 ---
 
-<Layout title={page.title}>
+<Layout title={page.title} description={page.description} seo={page.seo}>
   <Header isLanding={page.isLanding} />
 
   <main class="main-wrapper relative overflow-x-clip">

@@ -1,5 +1,9 @@
 title: "About Us"
 description: "Learn about Main Insurance's history, values, and the team behind your trusted protection."
+seo:
+  title: About Main Insurance — Our Story & Values
+  description: "Discover 30+ years of insurance expertise. Meet the team committed to protecting what matters most to you."
+  image: /assets/img/og-default.jpg
 isLanding: false
 breadcrumbTitle: "About Us"
 breadcrumbCurrent: "About"

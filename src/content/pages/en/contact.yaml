@@ -1,5 +1,9 @@
 title: "Contact Us"
 description: "Get in touch with Main Insurance. We're here to answer your questions and help you find the right coverage."
+seo:
+  title: Contact Main Insurance — Get a Free Quote
+  description: "Reach out to our Athens team for a personalized insurance quote. Call, email, or visit our office."
+  image: /assets/img/og-default.jpg
 isLanding: false
 breadcrumbTitle: "Contact Us"
 breadcrumbCurrent: "Contact"

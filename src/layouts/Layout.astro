@@ -1,15 +1,25 @@
 ---
 import "@/styles/global.css";
+import { Seo } from "astro-seo-meta";
+import { Schema } from "astro-seo-schema";
+import type { SeoData } from "@/content/config";
+
+const SITE_NAME = "Main Insurance";
+const SITE_URL = import.meta.env.SITE ?? "https://maininsurance.gr";
 
 interface Props {
   title?: string;
   description?: string;
+  seo?: SeoData;
 }
 
-const {
-  title = "Sofax | SASS & Startup Tailwind Template",
-  description = "Sofax is best software platform to manage your sales.",
-} = Astro.props;
+const { title, description, seo } = Astro.props;
+
+const pageTitle = seo?.title ?? title ?? SITE_NAME;
+const metaTitle = pageTitle.includes(SITE_NAME) ? pageTitle : `${pageTitle} | ${SITE_NAME}`;
+const metaDescription = seo?.description ?? description ?? "";
+const ogImage = seo?.image ?? "/assets/img/og-default.jpg";
+const canonicalUrl = new URL(Astro.url.pathname, SITE_URL).href;
 ---
 
 <!doctype html>
@@ -17,9 +27,40 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description} />
-    <title>{title}</title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <Seo
+      title={metaTitle}
+      description={metaDescription}
+      icon="/favicon.ico"
+      colorScheme="dark"
+      facebook={{
+        image: ogImage,
+        url: canonicalUrl,
+        type: "website",
+      }}
+      twitter={{
+        image: ogImage,
+        card: "summary_large_image",
+      }}
+    />
+
+    <Schema
+      item={{
+        "@context": "https://schema.org",
+        "@type": "InsuranceAgency",
+        name: SITE_NAME,
+        url: SITE_URL,
+        description: metaDescription,
+        image: ogImage,
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Athens",
+          addressCountry: "GR",
+        },
+      }}
+    />
   </head>
   <body class="relative">
     <div class="page-wrapper relative">

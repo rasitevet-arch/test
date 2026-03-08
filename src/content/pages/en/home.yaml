@@ -1,6 +1,10 @@
 title: Main Insurance — Trusted Protection
 description: Main Insurance provides comprehensive coverage for individuals and
   businesses across Greece.
+seo:
+  title: Main Insurance — Trusted Protection for Individuals & Businesses
+  description: Leading insurance broker in Greece offering auto, home, health, and business coverage. Get a free quote today.
+  image: /assets/img/og-default.jpg
 isLanding: true
 blocks:
   - component: hero

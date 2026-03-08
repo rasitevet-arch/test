@@ -123,6 +123,14 @@ components:
       - { name: title, label: Title, type: string, required: true }
       - { name: description, label: Description, type: text, required: true }
 
+  seoObject:
+    label: SEO Settings
+    type: object
+    fields:
+      - { name: title, label: SEO Title, type: string, required: true }
+      - { name: description, label: Meta Description, type: text }
+      - { name: image, label: OG Image, type: image }
+
   breadcrumbPathItem:
     label: Breadcrumb
     type: object
@@ -332,6 +340,9 @@ content:
     fields:
       - { name: title, label: Title, type: string, required: true }
       - { name: description, label: SEO Description, type: text }
+      - name: seo
+        label: SEO Settings
+        component: seoObject
       - { name: isLanding, label: Is Landing Page, type: boolean, default: false }
       - { name: breadcrumbTitle, label: Breadcrumb Title, type: string }
       - { name: breadcrumbCurrent, label: Breadcrumb Current, type: string }
@@ -374,6 +385,9 @@ content:
     fields:
       - { name: title, label: Title, type: string, required: true }
       - { name: description, label: SEO Description, type: text }
+      - name: seo
+        label: SEO Settings
+        component: seoObject
       - { name: isLanding, label: Is Landing Page, type: boolean, default: false }
       - { name: breadcrumbTitle, label: Breadcrumb Title, type: string }
       - { name: breadcrumbCurrent, label: Breadcrumb Current, type: string }
