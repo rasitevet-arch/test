@@ -1,0 +1,66 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  approachTitle?: string;
+  approachDescription?: string;
+  strategyTitle?: string;
+  strategyDescription?: string;
+  checklist?: string[];
+}
+
+const {
+  title = "Lorem Ipsum Dolor Sit Amet",
+  description = "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+  image = "https://placehold.co/1282x584",
+  approachTitle = "Ut Enim Ad Minim Veniam Quis Nostrud",
+  approachDescription = "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+  strategyTitle = "Excepteur Sint Occaecat",
+  strategyDescription = "Non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis.",
+  checklist = [
+    "Lorem ipsum dolor sit",
+    "Consectetur adipiscing",
+    "Sed do eiusmod tempor",
+    "Ut labore et dolore",
+  ],
+} = Astro.props;
+---
+
+<section class="service-details-section">
+  <div class="section-space">
+    <div class="container">
+      <div class="">
+        <h2 class="mb-6">{title}</h2>
+        <p>{description}</p>
+        <div class="relative mb-10 mt-[50px] flex items-center justify-center overflow-hidden rounded-[16px] border-b-8 border-r-8 border-txt-secondary lg:mb-[80px]">
+          <img src={image} alt="service-details-img" width="1282" height="584" class="min-h-96 w-full border border-txt-secondary object-cover" />
+        </div>
+        <div>
+          <h2 class="mb-5 max-w-4xl">{approachTitle}</h2>
+          <p>{approachDescription}</p>
+          <div class="grid grid-cols-1 items-center gap-x-[60px] gap-y-10 lg:grid-cols-12">
+            <div class="rounded-md bg-bg-tertiary p-[30px] text-white lg:col-span-6 xxl:col-span-5">
+              <h3 class="mb-4 text-white">{strategyTitle}</h3>
+              <p>{strategyDescription}</p>
+            </div>
+            <div class="lg:col-span-6 xxl:col-span-7">
+              <ul class="grid grid-cols-1 gap-4 xxl:grid-cols-2">
+                {checklist.map((item) => (
+                  <li>
+                    <div class="display-heading display-heading-4">
+                      <span class="inline-block translate-y-0.5 pr-3 font-normal text-accent"><Icon name="lets-icons:check-round-fill" class="h-7 w-7" /></span>
+                      {item}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,93 @@
+title: "About Us"
+description: "Learn about Main Insurance's history, values, and the team behind your trusted protection."
+isLanding: false
+breadcrumbTitle: "About Us"
+breadcrumbCurrent: "About"
+breadcrumbPath:
+  - label: "Home"
+    url: "/"
+blocks:
+  - component: aboutContent
+    title: "Our Story"
+    description: "Founded in 1994, Main Insurance has grown from a small family office in Athens to one of Greece's most respected independent insurance brokerages. We believe that insurance should be accessible, transparent, and personal."
+    image: "/assets/img/abstracts/content-shape-1.svg"
+    stats:
+      - prefix: ""
+        value: "30"
+        suffix: "+"
+        label: "Years in Business"
+      - prefix: ""
+        value: "5,000"
+        suffix: "+"
+        label: "Happy Clients"
+      - prefix: ""
+        value: "15"
+        suffix: ""
+        label: "Insurance Partners"
+    buttonLink: "/contact"
+    buttonLabel: "Work With Us"
+
+  - component: values
+    title: "What We Stand For"
+    values:
+      - icon: "/assets/img/images/home-1/feature-icon-1.svg"
+        iconAlt: "Trust icon"
+        iconWidth: 64
+        iconHeight: 64
+        name: "Trust"
+        description: "We build lasting relationships based on transparency and honesty. Your trust is the foundation of everything we do."
+      - icon: "/assets/img/images/home-1/feature-icon-2.svg"
+        iconAlt: "Expertise icon"
+        iconWidth: 64
+        iconHeight: 64
+        name: "Expertise"
+        description: "Our team holds certified qualifications and continuously invests in training to stay ahead of the insurance market."
+      - icon: "/assets/img/images/home-1/feature-icon-3.svg"
+        iconAlt: "Innovation icon"
+        iconWidth: 64
+        iconHeight: 64
+        name: "Innovation"
+        description: "We leverage modern technology and data analytics to find the best coverage at the best price for every client."
+      - icon: "/assets/img/images/home-1/content-icon-1.svg"
+        iconAlt: "Care icon"
+        iconWidth: 64
+        iconHeight: 64
+        name: "Care"
+        description: "When you need us most — during a claim — we're there. Fast, empathetic, and results-driven support every time."
+
+  - component: team
+    title: "Meet Our Team"
+    buttonLink: "/contact"
+    buttonLabel: "Contact Us"
+    members:
+      - image: "/assets/img/images/home-1/content-icon-1.svg"
+        name: "George Konstantinou"
+        role: "Founder & CEO"
+        link: "#"
+      - image: "/assets/img/images/home-1/content-icon-2.svg"
+        name: "Sofia Andreou"
+        role: "Head of Client Relations"
+        link: "#"
+      - image: "/assets/img/images/home-1/content-icon-3.svg"
+        name: "Dimitris Alexandrou"
+        role: "Senior Insurance Advisor"
+        link: "#"
+      - image: "/assets/img/images/home-1/feature-icon-1.svg"
+        name: "Katerina Vlachou"
+        role: "Claims Manager"
+        link: "#"
+
+  - component: faq
+    title: "Common Questions About Us"
+    faqs:
+      - question: "Is Main Insurance an independent broker?"
+        answer: "Yes. We are fully independent and work with over 15 insurance providers to find the best fit for your needs."
+      - question: "Are you regulated?"
+        answer: "Absolutely. We are licensed and regulated by the Bank of Greece and comply with all EU insurance directives."
+      - question: "Do you handle claims directly?"
+        answer: "Yes, our dedicated claims team manages the entire process on your behalf, from filing to settlement."
+    hasBg: true
+
+  - component: cta
+    title: "Ready to protect what matters? Let's talk."
+    buttonLink: "/contact"

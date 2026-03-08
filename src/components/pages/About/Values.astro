@@ -1,0 +1,68 @@
+---
+interface Props {
+  title?: string;
+  values?: {
+    icon: string;
+    iconAlt: string;
+    iconWidth: number;
+    iconHeight: number;
+    name: string;
+    description: string;
+  }[];
+}
+
+const {
+  title = "Lorem Ipsum Dolor Sit Amet",
+  values = [
+    {
+      icon: "https://placehold.co/70x70",
+      iconAlt: "Value 1",
+      iconWidth: 70,
+      iconHeight: 70,
+      name: "Lorem Ipsum",
+      description: "Consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+    },
+    {
+      icon: "https://placehold.co/70x70",
+      iconAlt: "Value 2",
+      iconWidth: 70,
+      iconHeight: 70,
+      name: "Dolor Sit Amet",
+      description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+    },
+    {
+      icon: "https://placehold.co/70x70",
+      iconAlt: "Value 3",
+      iconWidth: 70,
+      iconHeight: 70,
+      name: "Adipiscing Elit",
+      description: "Duis aute irure dolor in reprehenderit in voluptate velit esse.",
+    },
+  ],
+} = Astro.props;
+---
+
+<section class="section-feature">
+  <div class="bg-bg-secondary">
+    <div class="section-space">
+      <div class="container">
+        <div class="mx-auto mb-10 max-w-3xl text-center md:mb-[60px] lg:mb-20">
+          <h2>{title}</h2>
+        </div>
+        <ul class="grid grid-cols-1 items-start gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {values.map((v, i) => (
+            <li class={`${i === 0 ? 'relative z-10' : ''}`}>
+              <div class="hover-shadow">
+                <div class="relative z-10 rounded-[10px] border border-txt-secondary bg-white p-[30px]">
+                  <img src={v.icon} alt={v.iconAlt} width={v.iconWidth} height={v.iconHeight} class="h-[70px] w-auto" />
+                  <div class="display-heading display-heading-4 mb-4 mt-[30px]">{v.name}</div>
+                  <p>{v.description}</p>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

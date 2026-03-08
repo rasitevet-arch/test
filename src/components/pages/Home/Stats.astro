@@ -1,0 +1,41 @@
+---
+interface Props {
+  title?: string;
+  facts?: { value: string; label: string }[];
+}
+
+const {
+  title = "Lorem Ipsum Dolor Sit Amet",
+  facts = [
+    { value: "150", label: "Lorem Ipsum" },
+    { value: "98", label: "Dolor Sit Amet" },
+    { value: "25", label: "Consectetur Elit" },
+  ],
+} = Astro.props;
+---
+
+<div class="fun-fact-section">
+  <div class="bg-bg-primary">
+    <div class="py-20 lg:py-[100px]">
+      <div class="container">
+        <div class="grid grid-cols-12 items-center justify-center gap-10 text-center lg:justify-start lg:text-left">
+          <div class="col-span-12 font-title text-4xl font-bold leading-none text-white lg:col-span-4 lg:-tracking-[2px] xl:text-[44px] xxl:text-[50px]">
+            {title}
+          </div>
+          <ul class="col-span-12 grid grid-cols-1 justify-between gap-x-10 gap-y-10 sm:grid-cols-2 md:grid-cols-3 lg:col-span-8 lg:flex">
+            {facts.map((fact) => (
+              <li class="text-white">
+                <div class="display-heading display-heading-2 mb-1 text-white" data-module="countup">
+                  <span class="start-number" data-countup-number={fact.value}>{fact.value}</span>+
+                </div>
+                <span>{fact.label}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="@/scripts/countup.ts"></script>

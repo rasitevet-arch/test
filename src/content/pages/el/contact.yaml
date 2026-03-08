@@ -1,0 +1,31 @@
+title: "Επικοινωνία"
+description: "Επικοινωνήστε με τη Main Insurance. Είμαστε εδώ για να απαντήσουμε τις ερωτήσεις σας και να σας βοηθήσουμε να βρείτε τη σωστή κάλυψη."
+isLanding: false
+breadcrumbTitle: "Επικοινωνία"
+breadcrumbCurrent: "Επικοινωνία"
+breadcrumbPath:
+  - label: "Αρχική"
+    url: "/el"
+blocks:
+  - component: contactInfo
+    contactItems:
+      - icon: "/assets/img/images/home-1/contact-icon-1.svg"
+        iconAlt: "Εικονίδιο τηλεφώνου"
+        title: "Καλέστε μας"
+        content: "+30 210 1234 567"
+      - icon: "/assets/img/images/home-1/contact-icon-2.svg"
+        iconAlt: "Εικονίδιο email"
+        title: "Στείλτε μας Email"
+        content: "info@maininsurance.gr"
+      - icon: "/assets/img/images/home-1/contact-icon-3.svg"
+        iconAlt: "Εικονίδιο τοποθεσίας"
+        title: "Επισκεφθείτε μας"
+        content: "Πλατεία Συντάγματος 123, Αθήνα 10563, Ελλάδα"
+    formAction: "/api/contact"
+
+  - component: map
+    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.2!2d23.7348!3d37.9755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM3fCsDU4JzMyLjAiTiAyM8KwNDQnMDUuMyJF!5e0!3m2!1sen!2sgr"
+
+  - component: cta
+    title: "Ας χτίσουμε μαζί το σχέδιο προστασίας σας."
+    buttonLink: "tel:+302101234567"

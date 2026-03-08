@@ -1,0 +1,93 @@
+title: "Σχετικά με Εμάς"
+description: "Μάθετε για την ιστορία, τις αξίες και την ομάδα της Main Insurance."
+isLanding: false
+breadcrumbTitle: "Σχετικά με Εμάς"
+breadcrumbCurrent: "Σχετικά"
+breadcrumbPath:
+  - label: "Αρχική"
+    url: "/el"
+blocks:
+  - component: aboutContent
+    title: "Η Ιστορία μας"
+    description: "Ιδρύθηκε το 1994, η Main Insurance εξελίχθηκε από ένα μικρό οικογενειακό γραφείο στην Αθήνα σε μία από τις πιο αξιόπιστες ανεξάρτητες ασφαλιστικές μεσιτείες της Ελλάδας. Πιστεύουμε ότι η ασφάλιση πρέπει να είναι προσιτή, διαφανής και προσωπική."
+    image: "/assets/img/abstracts/content-shape-1.svg"
+    stats:
+      - prefix: ""
+        value: "30"
+        suffix: "+"
+        label: "Χρόνια Λειτουργίας"
+      - prefix: ""
+        value: "5.000"
+        suffix: "+"
+        label: "Ικανοποιημένοι Πελάτες"
+      - prefix: ""
+        value: "15"
+        suffix: ""
+        label: "Ασφαλιστικοί Συνεργάτες"
+    buttonLink: "/el/contact"
+    buttonLabel: "Συνεργαστείτε Μαζί μας"
+
+  - component: values
+    title: "Οι Αξίες μας"
+    values:
+      - icon: "/assets/img/images/home-1/feature-icon-1.svg"
+        iconAlt: "Εικονίδιο εμπιστοσύνης"
+        iconWidth: 64
+        iconHeight: 64
+        name: "Εμπιστοσύνη"
+        description: "Χτίζουμε μακροχρόνιες σχέσεις βασισμένες στη διαφάνεια και την ειλικρίνεια. Η εμπιστοσύνη σας είναι η βάση όλων."
+      - icon: "/assets/img/images/home-1/feature-icon-2.svg"
+        iconAlt: "Εικονίδιο εμπειρίας"
+        iconWidth: 64
+        iconHeight: 64
+        name: "Εμπειρογνωμοσύνη"
+        description: "Η ομάδα μας διαθέτει πιστοποιημένα προσόντα και επενδύει συνεχώς στην εκπαίδευση για να παραμένει μπροστά στην αγορά."
+      - icon: "/assets/img/images/home-1/feature-icon-3.svg"
+        iconAlt: "Εικονίδιο καινοτομίας"
+        iconWidth: 64
+        iconHeight: 64
+        name: "Καινοτομία"
+        description: "Αξιοποιούμε σύγχρονη τεχνολογία και αναλυτικά δεδομένα για να βρίσκουμε την καλύτερη κάλυψη στην καλύτερη τιμή."
+      - icon: "/assets/img/images/home-1/content-icon-1.svg"
+        iconAlt: "Εικονίδιο φροντίδας"
+        iconWidth: 64
+        iconHeight: 64
+        name: "Φροντίδα"
+        description: "Όταν μας χρειάζεστε περισσότερο — κατά τη διάρκεια μιας αποζημίωσης — είμαστε εκεί. Γρήγοροι, με ενσυναίσθηση και αποτελεσματικοί."
+
+  - component: team
+    title: "Η Ομάδα μας"
+    buttonLink: "/el/contact"
+    buttonLabel: "Επικοινωνήστε"
+    members:
+      - image: "/assets/img/images/home-1/content-icon-1.svg"
+        name: "Γιώργος Κωνσταντίνου"
+        role: "Ιδρυτής & CEO"
+        link: "#"
+      - image: "/assets/img/images/home-1/content-icon-2.svg"
+        name: "Σοφία Ανδρέου"
+        role: "Υπεύθυνη Πελατειακών Σχέσεων"
+        link: "#"
+      - image: "/assets/img/images/home-1/content-icon-3.svg"
+        name: "Δημήτρης Αλεξάνδρου"
+        role: "Ανώτερος Ασφαλιστικός Σύμβουλος"
+        link: "#"
+      - image: "/assets/img/images/home-1/feature-icon-1.svg"
+        name: "Κατερίνα Βλάχου"
+        role: "Υπεύθυνη Αποζημιώσεων"
+        link: "#"
+
+  - component: faq
+    title: "Συχνές Ερωτήσεις για Εμάς"
+    faqs:
+      - question: "Είναι η Main Insurance ανεξάρτητος μεσίτης;"
+        answer: "Ναι. Είμαστε πλήρως ανεξάρτητοι και συνεργαζόμαστε με πάνω από 15 ασφαλιστικούς παρόχους για να βρούμε την καλύτερη λύση."
+      - question: "Είστε αδειοδοτημένοι;"
+        answer: "Απολύτως. Είμαστε αδειοδοτημένοι και εποπτευόμενοι από την Τράπεζα της Ελλάδος και συμμορφωνόμαστε με όλες τις οδηγίες της ΕΕ."
+      - question: "Χειρίζεστε αποζημιώσεις απευθείας;"
+        answer: "Ναι, η εξειδικευμένη ομάδα αποζημιώσεών μας διαχειρίζεται ολόκληρη τη διαδικασία για εσάς, από την υποβολή μέχρι τον διακανονισμό."
+    hasBg: true
+
+  - component: cta
+    title: "Έτοιμοι να προστατεύσετε αυτά που μετράνε; Ας μιλήσουμε."
+    buttonLink: "/el/contact"

@@ -1,0 +1,403 @@
+media:
+  input: public/assets/img/cms
+  output: /assets/img/cms
+  categories: [image]
+
+# ---------------------------------------------------------------------------
+# Reusable components
+# ---------------------------------------------------------------------------
+
+components:
+  # -- Shared sub-objects used inside blocks --------------------------------
+
+  decorativeElement:
+    label: Decorative Element
+    type: object
+    fields:
+      - { name: image, label: Image, type: image, required: true }
+      - { name: className, label: CSS Class, type: string }
+
+  clientItem:
+    label: Client Logo
+    type: object
+    fields:
+      - { name: image, label: Logo Image, type: image, required: true }
+      - { name: alt, label: Alt Text, type: string }
+      - { name: width, label: Width, type: number }
+      - { name: height, label: Height, type: number }
+
+  cmsImage:
+    label: Image
+    type: object
+    fields:
+      - { name: url, label: Image, type: image, required: true }
+      - { name: alt, label: Alt Text, type: string }
+      - { name: width, label: Width, type: number, default: 0 }
+      - { name: height, label: Height, type: number, default: 0 }
+
+  factItem:
+    label: Fact
+    type: object
+    fields:
+      - { name: value, label: Value, type: string, required: true }
+      - { name: label, label: Label, type: string, required: true }
+
+  serviceItem:
+    label: Service
+    type: object
+    fields:
+      - { name: icon, label: Icon, type: image }
+      - { name: name, label: Name, type: string, required: true }
+      - { name: description, label: Description, type: text, required: true }
+      - { name: link, label: Link, type: string }
+
+  testimonialItem:
+    label: Testimonial
+    type: object
+    fields:
+      - { name: quote, label: Quote, type: text, required: true }
+      - { name: name, label: Name, type: string, required: true }
+      - { name: role, label: Role, type: string }
+      - { name: avatar, label: Avatar, type: image }
+
+  faqItem:
+    label: FAQ
+    type: object
+    fields:
+      - { name: question, label: Question, type: string, required: true }
+      - { name: answer, label: Answer, type: text, required: true }
+
+  contactDetail:
+    label: Contact Detail
+    type: object
+    fields:
+      - { name: icon, label: Icon Name, type: string }
+      - { name: label, label: Label, type: string, required: true }
+      - { name: value, label: Value, type: string, required: true }
+      - { name: href, label: Href, type: string }
+
+  valueItem:
+    label: Value
+    type: object
+    fields:
+      - { name: icon, label: Icon, type: image }
+      - { name: iconAlt, label: Icon Alt, type: string }
+      - { name: iconWidth, label: Icon Width, type: number, default: 0 }
+      - { name: iconHeight, label: Icon Height, type: number, default: 0 }
+      - { name: name, label: Name, type: string, required: true }
+      - { name: description, label: Description, type: text, required: true }
+
+  statItem:
+    label: Stat
+    type: object
+    fields:
+      - { name: prefix, label: Prefix, type: string }
+      - { name: value, label: Value, type: string, required: true }
+      - { name: suffix, label: Suffix, type: string }
+      - { name: label, label: Label, type: string, required: true }
+
+  teamMember:
+    label: Team Member
+    type: object
+    fields:
+      - { name: image, label: Photo, type: image }
+      - { name: name, label: Name, type: string, required: true }
+      - { name: role, label: Role, type: string }
+      - { name: link, label: Profile Link, type: string }
+
+  contactInfoItem:
+    label: Contact Info
+    type: object
+    fields:
+      - { name: icon, label: Icon, type: image }
+      - { name: iconAlt, label: Icon Alt, type: string }
+      - { name: title, label: Title, type: string, required: true }
+      - { name: content, label: Content, type: string, required: true }
+
+  approachItem:
+    label: Approach Step
+    type: object
+    fields:
+      - { name: icon, label: Icon, type: image }
+      - { name: iconAlt, label: Icon Alt, type: string }
+      - { name: title, label: Title, type: string, required: true }
+      - { name: description, label: Description, type: text, required: true }
+
+  breadcrumbPathItem:
+    label: Breadcrumb
+    type: object
+    fields:
+      - { name: label, label: Label, type: string, required: true }
+      - { name: url, label: URL, type: string, required: true }
+
+  # -- Block definitions (one per visual section) ---------------------------
+
+  heroBlock:
+    label: Hero
+    type: object
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: description, label: Description, type: text, required: true }
+      - { name: ctaLink, label: CTA Link, type: string }
+      - { name: ctaLabel, label: CTA Label, type: string }
+      - { name: secondaryLink, label: Secondary Link, type: string }
+      - { name: secondaryLabel, label: Secondary Label, type: string }
+      - { name: decorativeElements, label: Decorative Elements, component: decorativeElement, list: true }
+
+  clientsBlock:
+    label: Clients
+    type: object
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: clients, label: Clients, component: clientItem, list: true }
+
+  featuresBlock:
+    label: Features
+    type: object
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: paragraphs, label: Paragraphs, type: string, list: true }
+      - { name: buttonLink, label: Button Link, type: string }
+      - { name: buttonLabel, label: Button Label, type: string }
+      - name: image
+        label: Image
+        component: cmsImage
+
+  statsBlock:
+    label: Stats
+    type: object
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: facts, label: Facts, component: factItem, list: true }
+
+  servicesBlock:
+    label: Services
+    type: object
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: services, label: Services, component: serviceItem, list: true }
+
+  testimonialsBlock:
+    label: Testimonials
+    type: object
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: testimonials, label: Testimonials, component: testimonialItem, list: true }
+
+  faqBlock:
+    label: FAQ
+    type: object
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: faqs, label: FAQs, component: faqItem, list: true }
+      - { name: hasBg, label: Has Background, type: boolean, default: false }
+
+  contactFormBlock:
+    label: Contact Form
+    type: object
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: description, label: Description, type: text }
+      - { name: contactItems, label: Contact Items, component: contactDetail, list: true }
+
+  valuesBlock:
+    label: Values
+    type: object
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: values, label: Values, component: valueItem, list: true }
+
+  aboutContentBlock:
+    label: About Content
+    type: object
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: description, label: Description, type: text }
+      - { name: image, label: Image, type: image }
+      - { name: stats, label: Stats, component: statItem, list: true }
+      - { name: buttonLink, label: Button Link, type: string }
+      - { name: buttonLabel, label: Button Label, type: string }
+
+  teamBlock:
+    label: Team
+    type: object
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: buttonLink, label: Button Link, type: string }
+      - { name: buttonLabel, label: Button Label, type: string }
+      - { name: members, label: Members, component: teamMember, list: true }
+
+  ctaBlock:
+    label: Call to Action
+    type: object
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: buttonLink, label: Button Link, type: string }
+
+  contactInfoBlock:
+    label: Contact Info
+    type: object
+    fields:
+      - { name: contactItems, label: Contact Items, component: contactInfoItem, list: true }
+      - { name: formAction, label: Form Action URL, type: string }
+
+  mapBlock:
+    label: Map
+    type: object
+    fields:
+      - { name: embedUrl, label: Embed URL, type: string, required: true }
+
+  serviceDescriptionBlock:
+    label: Service Description
+    type: object
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: description, label: Description, type: text }
+      - { name: image, label: Image, type: image }
+      - { name: approachTitle, label: Approach Title, type: string }
+      - { name: approachDescription, label: Approach Description, type: text }
+      - { name: strategyTitle, label: Strategy Title, type: string }
+      - { name: strategyDescription, label: Strategy Description, type: text }
+      - { name: checklist, label: Checklist, type: string, list: true }
+
+  serviceApproachBlock:
+    label: Service Approach
+    type: object
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: description, label: Description, type: text }
+      - { name: image, label: Image, type: image }
+      - { name: items, label: Steps, component: approachItem, list: true }
+
+  marqueeBlock:
+    label: Marquee
+    type: object
+    fields:
+      - { name: items, label: Items, type: string, list: true }
+
+# ---------------------------------------------------------------------------
+# Shared page fields (used by both pages and services)
+# ---------------------------------------------------------------------------
+
+  pageFields:
+    label: Page Fields
+    type: object
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: description, label: SEO Description, type: text }
+      - { name: isLanding, label: Is Landing Page, type: boolean, default: false }
+      - { name: breadcrumbTitle, label: Breadcrumb Title, type: string }
+      - { name: breadcrumbCurrent, label: Breadcrumb Current, type: string }
+      - { name: breadcrumbPath, label: Breadcrumb Path, component: breadcrumbPathItem, list: true }
+      - name: blocks
+        label: Page Blocks
+        type: block
+        list: true
+        blockKey: component
+        blocks:
+          - { name: hero, label: Hero Section, component: heroBlock }
+          - { name: clients, label: Clients Section, component: clientsBlock }
+          - { name: features, label: Features Section, component: featuresBlock }
+          - { name: stats, label: Stats Section, component: statsBlock }
+          - { name: services, label: Services Section, component: servicesBlock }
+          - { name: testimonials, label: Testimonials Section, component: testimonialsBlock }
+          - { name: faq, label: FAQ Section, component: faqBlock }
+          - { name: contactForm, label: Contact Form Section, component: contactFormBlock }
+          - { name: values, label: Values Section, component: valuesBlock }
+          - { name: aboutContent, label: About Content Section, component: aboutContentBlock }
+          - { name: team, label: Team Section, component: teamBlock }
+          - { name: cta, label: CTA Section, component: ctaBlock }
+          - { name: contactInfo, label: Contact Info Section, component: contactInfoBlock }
+          - { name: map, label: Map Section, component: mapBlock }
+          - { name: serviceDescription, label: Service Description, component: serviceDescriptionBlock }
+          - { name: serviceApproach, label: Service Approach, component: serviceApproachBlock }
+          - { name: marquee, label: Marquee Section, component: marqueeBlock }
+
+# ---------------------------------------------------------------------------
+# Content
+# ---------------------------------------------------------------------------
+
+content:
+  # -- Pages (singletons: home, about, contact) per locale ------------------
+  - name: pages
+    label: Pages
+    type: collection
+    path: src/content/pages
+    format: yaml
+    filename: "{primary}.yaml"
+    subfolders: true
+    view:
+      fields: [title, isLanding]
+      primary: title
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: description, label: SEO Description, type: text }
+      - { name: isLanding, label: Is Landing Page, type: boolean, default: false }
+      - { name: breadcrumbTitle, label: Breadcrumb Title, type: string }
+      - { name: breadcrumbCurrent, label: Breadcrumb Current, type: string }
+      - { name: breadcrumbPath, label: Breadcrumb Path, component: breadcrumbPathItem, list: true }
+      - name: blocks
+        label: Page Blocks
+        type: block
+        list: true
+        blockKey: component
+        blocks:
+          - { name: hero, label: Hero Section, component: heroBlock }
+          - { name: clients, label: Clients Section, component: clientsBlock }
+          - { name: features, label: Features Section, component: featuresBlock }
+          - { name: stats, label: Stats Section, component: statsBlock }
+          - { name: services, label: Services Section, component: servicesBlock }
+          - { name: testimonials, label: Testimonials Section, component: testimonialsBlock }
+          - { name: faq, label: FAQ Section, component: faqBlock }
+          - { name: contactForm, label: Contact Form Section, component: contactFormBlock }
+          - { name: values, label: Values Section, component: valuesBlock }
+          - { name: aboutContent, label: About Content Section, component: aboutContentBlock }
+          - { name: team, label: Team Section, component: teamBlock }
+          - { name: cta, label: CTA Section, component: ctaBlock }
+          - { name: contactInfo, label: Contact Info Section, component: contactInfoBlock }
+          - { name: map, label: Map Section, component: mapBlock }
+          - { name: serviceDescription, label: Service Description, component: serviceDescriptionBlock }
+          - { name: serviceApproach, label: Service Approach, component: serviceApproachBlock }
+          - { name: marquee, label: Marquee Section, component: marqueeBlock }
+
+  # -- Services (dynamic collection) per locale -----------------------------
+  - name: services
+    label: Services
+    type: collection
+    path: src/content/services
+    format: yaml
+    filename: "{primary}.yaml"
+    subfolders: true
+    view:
+      fields: [title]
+      primary: title
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: description, label: SEO Description, type: text }
+      - { name: isLanding, label: Is Landing Page, type: boolean, default: false }
+      - { name: breadcrumbTitle, label: Breadcrumb Title, type: string }
+      - { name: breadcrumbCurrent, label: Breadcrumb Current, type: string }
+      - { name: breadcrumbPath, label: Breadcrumb Path, component: breadcrumbPathItem, list: true }
+      - name: blocks
+        label: Page Blocks
+        type: block
+        list: true
+        blockKey: component
+        blocks:
+          - { name: hero, label: Hero Section, component: heroBlock }
+          - { name: clients, label: Clients Section, component: clientsBlock }
+          - { name: features, label: Features Section, component: featuresBlock }
+          - { name: stats, label: Stats Section, component: statsBlock }
+          - { name: services, label: Services Section, component: servicesBlock }
+          - { name: testimonials, label: Testimonials Section, component: testimonialsBlock }
+          - { name: faq, label: FAQ Section, component: faqBlock }
+          - { name: contactForm, label: Contact Form Section, component: contactFormBlock }
+          - { name: values, label: Values Section, component: valuesBlock }
+          - { name: aboutContent, label: About Content Section, component: aboutContentBlock }
+          - { name: team, label: Team Section, component: teamBlock }
+          - { name: cta, label: CTA Section, component: ctaBlock }
+          - { name: contactInfo, label: Contact Info Section, component: contactInfoBlock }
+          - { name: map, label: Map Section, component: mapBlock }
+          - { name: serviceDescription, label: Service Description, component: serviceDescriptionBlock }
+          - { name: serviceApproach, label: Service Approach, component: serviceApproachBlock }
+          - { name: marquee, label: Marquee Section, component: marqueeBlock }

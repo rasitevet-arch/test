@@ -1,0 +1,315 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/dm-sans";
+
+@theme {
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-2xl: 1400px;
+  --breakpoint-3xl: 1600px;
+
+  --font-body: "Inter Variable", sans-serif;
+  --font-title: "DM Sans Variable", sans-serif;
+
+  --color-bg-primary: #000000;
+  --color-bg-secondary: #f9f9fa;
+  --color-bg-tertiary: #0e0e0e;
+  --color-txt-primary: #0e0e0e;
+  --color-txt-secondary: #000000;
+  --color-txt-accent: #113879;
+  --color-accent: #113879;
+  --color-border: #eaedf0;
+
+  --shadow-custom-1: 0px 4px 80px 0px rgba(0, 0, 0, 0.08);
+}
+
+/*
+ * Tailwind v4 replaces `xxl:` with `2xl:` and `xxxl:` with `3xl:`.
+ * The HTML still references `xxl:` and `xxxl:` utility prefixes from v3.
+ * We register backward-compatible aliases so those classes keep working.
+ */
+@custom-variant xxl (@media (width >= 1400px));
+@custom-variant xxxl (@media (width >= 1600px));
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body,
+  .page-wrapper {
+    @apply min-h-screen font-body text-xl text-txt-primary;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .display-heading {
+    @apply font-title font-bold text-txt-secondary;
+  }
+
+  h1,
+  .display-heading-1 {
+    @apply text-5xl leading-none sm:text-6xl md:text-7xl lg:-tracking-[3px] xl:text-8xl xxl:text-[120px];
+  }
+
+  h2,
+  .display-heading-2 {
+    @apply text-4xl leading-[1.06] sm:text-5xl md:text-[62px] lg:-tracking-[2px] xl:text-[75px];
+  }
+
+  h3,
+  .display-heading-3 {
+    @apply text-2xl leading-[1.05] -tracking-[0.5px] md:text-3xl xl:text-4xl;
+  }
+  h4,
+  .display-heading-4 {
+    @apply text-2xl -tracking-[0.5px];
+  }
+
+  h5,
+  .display-heading-5 {
+    @apply text-xl;
+  }
+  h6,
+  .display-heading-6 {
+    @apply text-lg;
+  }
+
+  a,
+  button,
+  .transition-default {
+    @apply transition-all duration-300;
+  }
+
+  p {
+    @apply mb-8 last:mb-0;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex min-w-[200px] items-center justify-center gap-x-2 overflow-hidden rounded-[50px] px-6 py-4 text-center text-base font-bold text-txt-secondary;
+  }
+
+  .btn span {
+    @apply block transition-all duration-300 first-of-type:translate-y-0 first-of-type:opacity-100 last-of-type:absolute last-of-type:translate-y-full last-of-type:opacity-0;
+  }
+  .btn:hover span {
+    @apply first-of-type:-translate-y-full first-of-type:opacity-0 last-of-type:translate-y-0 last-of-type:opacity-100;
+  }
+
+  .btn-primary {
+    @apply bg-accent text-white;
+  }
+
+  .btn-dark {
+    @apply bg-bg-primary text-white;
+  }
+
+  .btn-outline-black {
+    @apply border border-txt-secondary;
+  }
+
+  .hover-shadow {
+    @apply relative z-10 after:absolute after:left-0 after:top-0 after:-z-10 after:h-[calc(100%+5px)] after:w-[calc(100%+5px)] after:rounded-[10px] after:bg-transparent after:transition-all after:duration-300 hover:after:bg-bg-tertiary;
+  }
+
+  .img-shadow {
+    @apply relative z-10 after:absolute after:inset-0 after:-z-10 after:translate-x-2 after:translate-y-2 after:rounded-[10px] after:bg-bg-tertiary;
+  }
+}
+
+.section-space {
+  @apply py-20 lg:py-[100px] xl:py-[130px];
+}
+.section-space-top {
+  @apply pt-20 lg:pt-[100px] xl:pt-[130px];
+}
+.section-space-bottom {
+  @apply pb-20 lg:pb-[100px] xl:pb-[130px];
+}
+
+.breadcrumb-space {
+  @apply pb-20 pt-24 md:pt-32 lg:pb-[100px] lg:pt-40 xl:pb-[130px] xl:pt-52;
+}
+
+.breadcrumb {
+  @apply flex flex-wrap justify-center gap-x-10 gap-y-3;
+}
+
+.breadcrumb-item {
+  @apply relative text-white after:absolute after:left-[calc(100%+10px)] after:content-["/"] last-of-type:after:hidden;
+}
+.breadcrumb-item a {
+  @apply text-white hover:text-accent;
+}
+.breadcrumb-item.active {
+  @apply font-bold text-accent;
+}
+
+.section-para {
+  @apply mt-8 text-lg leading-[1.42] first-of-type:mt-0 lg:text-[21px];
+}
+
+.container {
+  @apply mx-auto max-w-full px-5 sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] xxl:max-w-[1330px];
+}
+.testimonial-thumbs .swiper-slide-thumb-active img {
+  @apply border-accent transition-all duration-300;
+}
+
+.accordion-body {
+  @apply h-0 translate-y-5 overflow-clip opacity-0 transition-all duration-300;
+}
+
+.accordion-item.active .accordion-body {
+  @apply h-auto translate-y-0 opacity-100;
+}
+
+.accordion-item-style-1 {
+  @apply rounded-[10px] border border-border p-5;
+}
+.accordion-item-style-1.active {
+  @apply shadow-custom-1;
+}
+
+.accordion-item-style-1.active .accordion-icon {
+  @apply rotate-180 transition-all duration-300;
+}
+
+.accordion-item-style-2 {
+  @apply rounded-[10px] border border-txt-secondary p-5;
+}
+.accordion-item-style-2.active {
+  @apply bg-bg-tertiary text-white;
+}
+
+.accordion-item-style-2.active .accordion-icon {
+  @apply rotate-180 transition-all duration-300;
+}
+
+.tab-button {
+  @apply rounded-[50px] border border-txt-secondary px-[30px] py-3 text-center transition-all duration-300;
+}
+.tab-button.active {
+  @apply border-accent bg-accent text-white;
+}
+
+.pagination {
+  @apply flex gap-x-6;
+}
+
+.page-item {
+  @apply inline-flex h-[50px] w-[50px] items-center justify-center rounded-full bg-bg-secondary transition-all duration-300 hover:bg-accent hover:text-white;
+}
+.page-item.active {
+  @apply bg-accent text-white;
+}
+
+.rich-text-block h1 {
+  @apply mb-6;
+}
+.rich-text-block h2 {
+  @apply mb-4;
+}
+.rich-text-block h3 {
+  @apply mb-4;
+}
+.rich-text-block h4 {
+  @apply mb-4;
+}
+.rich-text-block h5 {
+  @apply mb-4;
+}
+.rich-text-block h6 {
+  @apply mb-4;
+}
+.rich-text-block p {
+  @apply mb-8;
+}
+.rich-text-block blockquote {
+  @apply my-[30px] rounded-[10px] bg-bg-tertiary p-[30px] text-2xl font-bold leading-[1.05] -tracking-[0.5px] text-white md:text-3xl xl:text-4xl;
+}
+.rich-text-block ul {
+  @apply mb-10 flex list-inside list-disc flex-col gap-4 font-bold text-txt-secondary;
+}
+.rich-text-block ol {
+  @apply mb-10 flex list-inside list-decimal flex-col gap-4 font-bold text-txt-secondary;
+}
+
+/* Custom animations & effects (migrated from public/assets/css/custom.css) */
+.swiper-wrapper {
+  transition-timing-function: linear;
+}
+
+.scrolling {
+  animation: fadeInDown 0.9s 1;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 5px 2px rgb(0 0 0 / 10%);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple-animation 0.6s linear;
+  background: rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.rotate-animate {
+  animation: rotate 5s linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.up-down-40 {
+  animation: up-down 3s linear infinite backwards;
+}
+
+@keyframes up-down {
+  from {
+    transform: translateY(-40px);
+  }
+  to {
+    transform: translateY(40px);
+  }
+}
+
+.infinite-text-slider {
+  animation: infinite-text-slider 8s linear infinite backwards;
+}
+
+@keyframes infinite-text-slider {
+  from {
+    transform: translateX(-100%);
+  }
+}

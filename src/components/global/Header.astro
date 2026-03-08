@@ -1,0 +1,153 @@
+---
+import { Icon } from "astro-icon/components";
+import { getServicesList, localePath } from "@/lib/cms";
+import type { Locale } from "@/types/cms";
+
+interface Props {
+  isLanding?: boolean;
+}
+
+const { isLanding = false } = Astro.props;
+
+const locale = (Astro.currentLocale ?? "en") as Locale;
+const services = await getServicesList(locale);
+---
+
+<header
+  class:list={[
+    "fixed top-0 z-30 w-full transition-all duration-300",
+    isLanding ? "py-4" : "bg-bg-primary/80 py-2 backdrop-blur-sm",
+  ]}
+>
+  <div class="container">
+    <div class="flex items-center justify-between">
+      <a href={localePath("", locale)} class="shrink-0">
+        <img
+          src={isLanding ? "/assets/img/images/logo.png" : "/assets/img/images/logo-alter.png"}
+          alt="logo"
+          width="112"
+          height="40"
+        />
+      </a>
+
+      {isLanding ? (
+        <nav>
+          <ul
+            id="mobile-menu"
+            class="hidden absolute left-0 top-full w-full flex-col bg-white p-6 shadow-lg lg:static lg:flex lg:w-auto lg:flex-row lg:items-center lg:gap-x-8 lg:bg-transparent lg:p-0 lg:shadow-none"
+          >
+            <li><a href="#home" class="block py-2 font-semibold text-txt-secondary hover:text-accent lg:py-0 lg:text-txt-primary">Home</a></li>
+            <li><a href="#service" class="block py-2 font-semibold text-txt-secondary hover:text-accent lg:py-0 lg:text-txt-primary">Service</a></li>
+            <li><a href="#pricing" class="block py-2 font-semibold text-txt-secondary hover:text-accent lg:py-0 lg:text-txt-primary">Pricing</a></li>
+            <li><a href="#testimonial" class="block py-2 font-semibold text-txt-secondary hover:text-accent lg:py-0 lg:text-txt-primary">Testimonial</a></li>
+            <li><a href="#blog" class="block py-2 font-semibold text-txt-secondary hover:text-accent lg:py-0 lg:text-txt-primary">Blog</a></li>
+          </ul>
+        </nav>
+      ) : (
+        <nav>
+          <ul
+            id="mobile-menu"
+            class="hidden absolute left-0 top-full max-h-[80vh] w-full flex-col overflow-y-auto bg-white p-6 shadow-lg lg:static lg:flex lg:max-h-none lg:w-auto lg:flex-row lg:items-center lg:gap-x-7 lg:overflow-visible lg:bg-transparent lg:p-0 lg:shadow-none"
+          >
+            {/* --- Home --- */}
+            <li>
+              <a href={localePath("", locale)} class="block py-3 font-semibold text-txt-secondary hover:text-accent lg:py-0 lg:text-white lg:hover:text-accent">Home</a>
+            </li>
+
+            {/* --- About --- */}
+            <li>
+              <a href={localePath("about", locale)} class="block py-3 font-semibold text-txt-secondary hover:text-accent lg:py-0 lg:text-white lg:hover:text-accent">About</a>
+            </li>
+
+            {/* --- Services (dynamic dropdown) --- */}
+            <li class="group relative">
+              <button
+                type="button"
+                class="flex w-full items-center gap-1 py-3 font-semibold text-txt-secondary hover:text-accent lg:py-0 lg:text-white lg:hover:text-accent"
+                data-dropdown-trigger
+              >
+                Services <Icon name="lets-icons:expand-down" class="h-4 w-4 transition-transform group-hover:rotate-180" />
+              </button>
+              <ul class="hidden flex-col lg:invisible lg:absolute lg:left-0 lg:top-full lg:z-50 lg:mt-2 lg:min-w-[220px] lg:rounded-lg lg:bg-white lg:py-2 lg:opacity-0 lg:shadow-lg lg:transition-all lg:group-hover:visible lg:group-hover:flex lg:group-hover:opacity-100">
+                {services.length > 0 ? (
+                  services.map((service) => (
+                    <li>
+                      <a href={localePath(`services/${service.slug}`, locale)} class="block px-4 py-1.5 text-sm font-semibold text-txt-primary hover:text-accent">
+                        {service.name}
+                      </a>
+                    </li>
+                  ))
+                ) : (
+                  <li>
+                    <span class="block px-4 py-1.5 text-sm italic text-txt-primary/60">No services yet</span>
+                  </li>
+                )}
+              </ul>
+            </li>
+
+            {/* --- Contact --- */}
+            <li>
+              <a href={localePath("contact", locale)} class="block py-3 font-semibold text-txt-secondary hover:text-accent lg:py-0 lg:text-white lg:hover:text-accent">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      )}
+
+      <div class="flex items-center gap-x-6">
+        <a
+          href={localePath("contact", locale)}
+          class="btn btn-primary relative hidden min-w-0 px-[30px] py-[10px] sm:inline-flex"
+        >
+          <span>Contact Us</span>
+          <span>Contact Us</span>
+        </a>
+        <button
+          id="menu-toggle"
+          type="button"
+          class:list={[
+            "block p-2 lg:hidden",
+            isLanding ? "text-txt-secondary" : "text-white",
+          ]}
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+        >
+          <Icon name="lets-icons:menu" class="h-6 w-6" id="menu-icon-open" />
+          <Icon name="lets-icons:close-round" class="hidden h-6 w-6" id="menu-icon-close" />
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+(function () {
+  var toggle = document.getElementById("menu-toggle");
+  var menu = document.getElementById("mobile-menu");
+  var iconOpen = document.getElementById("menu-icon-open");
+  var iconClose = document.getElementById("menu-icon-close");
+  if (!toggle || !menu) return;
+
+  toggle.addEventListener("click", function () {
+    var isOpen = !menu.classList.contains("hidden");
+    menu.classList.toggle("hidden");
+    menu.classList.toggle("flex");
+    iconOpen.classList.toggle("hidden", !isOpen);
+    iconClose.classList.toggle("hidden", isOpen);
+    toggle.setAttribute("aria-expanded", String(!isOpen));
+  });
+
+  if (window.innerWidth < 1024) {
+    document.querySelectorAll("[data-dropdown-trigger]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var sub = btn.nextElementSibling;
+        if (sub) {
+          sub.classList.toggle("hidden");
+          sub.classList.toggle("flex");
+        }
+      });
+    });
+  }
+})();
+</script>
+
+<script src="@/scripts/sticky-header.ts"></script>

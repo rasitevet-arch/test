@@ -1,0 +1,22 @@
+---
+interface Props {
+  items?: string[];
+}
+
+const {
+  items = ["Lorem Ipsum", "Dolor Sit Amet", "Consectetur", "Adipiscing Elit", "Tempor Incididunt"],
+} = Astro.props;
+---
+
+<div class="section-text-slider">
+  <div class="bg-bg-primary py-8 lg:py-10 xl:py-[50px]">
+    <div class="infinite-text-slider flex gap-6 whitespace-nowrap">
+      {items.map((item) => (
+        <div class="mx-6 flex items-center">
+          <div class="display-heading display-heading-2 text-white">{item}</div>
+          <img src="/assets/img/images/home-1/text-star-white.svg" alt="text-star-white" width="57" height="55" class="mx-6 inline-block" />
+        </div>
+      ))}
+    </div>
+  </div>
+</div>

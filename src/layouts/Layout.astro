@@ -1,0 +1,29 @@
+---
+import "@/styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Sofax | SASS & Startup Tailwind Template",
+  description = "Sofax is best software platform to manage your sales.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang={Astro.currentLocale ?? "en"} class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  </head>
+  <body class="relative">
+    <div class="page-wrapper relative">
+      <slot />
+    </div>
+  </body>
+</html>

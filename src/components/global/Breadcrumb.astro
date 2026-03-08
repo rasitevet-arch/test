@@ -1,0 +1,33 @@
+---
+interface Props {
+  title: string;
+  path: { label: string; url: string }[];
+  current: string;
+}
+
+const { title, path, current } = Astro.props;
+---
+
+<section class="section-breadcrumb">
+  <div class="bg-bg-primary">
+    <div class="breadcrumb-space">
+      <div class="container">
+        <div class="text-center text-white">
+          <h1 class="mb-[50px] text-white">{title}</h1>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              {path.map((item) => (
+                <li class="breadcrumb-item">
+                  <a href={item.url}>{item.label}</a>
+                </li>
+              ))}
+              <li class="breadcrumb-item active" aria-current="page">
+                {current}
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

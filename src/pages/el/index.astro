@@ -1,0 +1,22 @@
+---
+import BlockRenderer from "@components/BlockRenderer.astro";
+import Footer from "@components/global/Footer.astro";
+import Header from "@components/global/Header.astro";
+import Layout from "@layouts/Layout.astro";
+import { getPageData } from "@/lib/cms";
+import type { Locale } from "@/types/cms";
+
+const locale = (Astro.currentLocale ?? "en") as Locale;
+const page = await getPageData("home", locale);
+if (!page) return Astro.redirect("/error-404");
+---
+
+<Layout title={page.title}>
+  <Header isLanding={page.isLanding} />
+
+  <main class="main-wrapper relative overflow-x-clip">
+    <BlockRenderer blocks={page.blocks} />
+  </main>
+
+  <Footer isLanding={page.isLanding} />
+</Layout>

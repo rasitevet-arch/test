@@ -1,0 +1,127 @@
+---
+import { Icon } from "astro-icon/components";
+import { getServicesList, localePath } from "@/lib/cms";
+import type { Locale } from "@/types/cms";
+
+interface Props {
+  isLanding?: boolean;
+}
+
+const { isLanding = false } = Astro.props;
+
+const locale = (Astro.currentLocale ?? "en") as Locale;
+const services = await getServicesList(locale);
+
+const socialIcons = [
+  { name: "simple-icons:x", label: "X (Twitter)" },
+  { name: "simple-icons:facebook", label: "Facebook" },
+  { name: "simple-icons:instagram", label: "Instagram" },
+  { name: "simple-icons:linkedin", label: "LinkedIn" },
+];
+---
+
+<footer class="section-footer">
+  <div class="pb-14 pt-14 lg:pt-[100px]">
+    <div class="container">
+      <div class="flex flex-wrap gap-10 xl:justify-between">
+        {/* Logo & description */}
+        <div class="max-w-sm">
+          <a href={localePath("", locale)} class="inline-block">
+            <img src="/assets/img/images/logo.png" alt="logo" width="112" height="40" />
+          </a>
+          <p class="my-6">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+          {!isLanding && (
+            <div class="flex gap-6">
+              {socialIcons.map(({ name, label }) => (
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-bg-secondary text-lg hover:bg-accent hover:text-white"
+                >
+                  <Icon name={name} class="h-4 w-4" />
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Column 1: Main pages */}
+        <div>
+          <span class="display-heading display-heading-5 mb-6 block">Company</span>
+          <nav class="flex flex-col gap-y-4">
+            <a href={localePath("", locale)} class="hover:font-medium hover:text-txt-secondary">Home</a>
+            <a href={localePath("about", locale)} class="hover:font-medium hover:text-txt-secondary">About Us</a>
+            <a href={localePath("contact", locale)} class="hover:font-medium hover:text-txt-secondary">Contact</a>
+          </nav>
+        </div>
+
+        {/* Column 2: Dynamic services */}
+        <div>
+          <span class="display-heading display-heading-5 mb-6 block">Services</span>
+          <div class="flex flex-col gap-y-4">
+            {services.length > 0 ? (
+              services.map((service) => (
+                <a href={localePath(`services/${service.slug}`, locale)} class="hover:font-medium hover:text-txt-secondary">
+                  {service.name}
+                </a>
+              ))
+            ) : (
+              <span class="italic opacity-60">No services yet</span>
+            )}
+          </div>
+        </div>
+
+        {/* Newsletter (non-landing only) */}
+        {!isLanding && (
+          <div class="max-w-72">
+            <span class="display-heading display-heading-5 mb-6 block">Subscribe to our newsletter</span>
+            <form action="#" method="post">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                class="w-full rounded-[50px] border border-txt-secondary bg-white px-11 py-3"
+              />
+              <button type="submit" class="btn btn-primary mt-3 flex w-full">
+                <span>Subscribe now</span>
+                <span>Subscribe now</span>
+              </button>
+            </form>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="container">
+      {isLanding ? (
+        <div class="flex flex-wrap items-center justify-center gap-6 border-t border-border py-9 md:justify-between">
+          <div class="text-center md:text-right">
+            &copy; {new Date().getFullYear()} Main Insurance. All Rights Reserved.
+          </div>
+          <div class="flex gap-6">
+            {socialIcons.map(({ name, label }) => (
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-bg-secondary text-lg hover:bg-accent hover:text-white"
+              >
+                <Icon name={name} class="h-4 w-4" />
+              </a>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div class="border-t border-border py-9 text-center">
+          &copy; {new Date().getFullYear()} Main Insurance. All Rights Reserved.
+        </div>
+      )}
+    </div>
+  </div>
+</footer>

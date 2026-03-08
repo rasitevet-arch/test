@@ -1,0 +1,51 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  ctaLink?: string;
+  ctaLabel?: string;
+  secondaryLink?: string;
+  secondaryLabel?: string;
+  heroElements?: { src: string; alt: string; width: number; height: number; class: string }[];
+}
+
+const {
+  title = "Lorem Ipsum Dolor Sit Amet Consectetur",
+  description = "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+  ctaLink = "#",
+  ctaLabel = "Get Started",
+  secondaryLink = "#",
+  secondaryLabel = "Learn More",
+  heroElements = [],
+} = Astro.props;
+---
+
+<section class="section-hero" id="home">
+  <div class="img-elements-block relative z-10 pt-24 md:pt-32 lg:pt-40 xl:pt-52">
+    <div class="container">
+      <div class="relative">
+        <div class="mx-auto max-w-5xl">
+          <div class="text-center">
+            <h1 class="hero-title mb-6">{title}</h1>
+            <p class="mx-auto max-w-6xl">{description}</p>
+            <div class="flex flex-wrap justify-center gap-6">
+              <a href={ctaLink} class="btn btn-primary ripple-button">
+                <span>{ctaLabel}</span>
+                <span>{ctaLabel}</span>
+              </a>
+              <a href={secondaryLink} class="btn btn-outline-black">
+                <span>{secondaryLabel}</span>
+                <span>{secondaryLabel}</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {heroElements.map((el) => (
+        <img src={el.src} alt={el.alt} width={el.width} height={el.height} class={`shape ${el.class}`} />
+      ))}
+    </div>
+  </div>
+</section>
+
+<script src="@/scripts/ripple.ts"></script>

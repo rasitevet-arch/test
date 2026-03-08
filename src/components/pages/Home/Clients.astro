@@ -1,0 +1,37 @@
+---
+interface Props {
+  title?: string;
+  clients?: { src: string; alt: string; width: number; height: number }[];
+}
+
+const {
+  title = "Trusted by Leading Companies Worldwide",
+  clients = [
+    { src: "https://placehold.co/150x50?text=Client+1", alt: "Client 1", width: 150, height: 50 },
+    { src: "https://placehold.co/150x50?text=Client+2", alt: "Client 2", width: 150, height: 50 },
+    { src: "https://placehold.co/150x50?text=Client+3", alt: "Client 3", width: 150, height: 50 },
+    { src: "https://placehold.co/150x50?text=Client+4", alt: "Client 4", width: 150, height: 50 },
+  ],
+} = Astro.props;
+---
+
+<div class="section-client">
+  <div class="py-20 lg:py-[100px]">
+    <div class="container">
+      <div class="mx-auto mb-[60px] max-w-2xl text-center">
+        <p class="display-heading display-heading-4">{title}</p>
+      </div>
+      <div class="client-slider swiper">
+        <div class="swiper-wrapper">
+          {clients.map((client) => (
+            <div class="swiper-slide flex justify-center">
+              <img src={client.src} alt={client.alt} width={client.width} height={client.height} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="@/scripts/swiper.ts"></script>

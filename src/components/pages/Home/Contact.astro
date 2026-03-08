@@ -1,0 +1,64 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  title?: string;
+  description?: string;
+  contactItems?: { icon: string; label: string; value: string; href: string }[];
+}
+
+const {
+  title = "Lorem Ipsum Dolor Sit Amet",
+  description = "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  contactItems = [
+    { icon: "lets-icons:phone", label: "Phone", value: "+1 234 567 890", href: "tel:+1234567890" },
+    {
+      icon: "lets-icons:mail",
+      label: "Email",
+      value: "info@example.com",
+      href: "mailto:info@example.com",
+    },
+    { icon: "lets-icons:pin", label: "Address", value: "123 Lorem Ipsum St.", href: "#" },
+  ],
+} = Astro.props;
+---
+
+<section class="section-contact">
+  <div class="bg-bg-primary">
+    <div class="section-space">
+      <div class="container">
+        <div class="grid grid-cols-1 gap-9 lg:grid-cols-[1fr_minmax(0,0.8fr)]">
+          <div class="text-white">
+            <div class="mb-[50px]">
+              <h2 class="text-white">{title}</h2>
+              <p class="mt-6">{description}</p>
+            </div>
+            <ul class="grid grid-cols-1 gap-y-6">
+              {contactItems.map((item) => (
+                <li class="flex gap-x-4">
+                  <span class="text-accent"><Icon name={item.icon} class="h-6 w-6" /></span>
+                  <div class="flex-1">
+                    <span class="display-heading display-heading-5 mb-1.5 block text-white">{item.label}</span>
+                    <a href={item.href} class="hover:text-accent">{item.value}</a>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="rounded-[10px] bg-white p-[30px]">
+            <div class="display-heading display-heading-3 mb-[30px]">Send us a message</div>
+            <form action="#" method="post" class="grid grid-cols-1 gap-y-6">
+              <input type="text" placeholder="Your Name" class="min-h-[60px] w-full rounded-[50px] border border-border px-5 py-[18px] text-base font-bold placeholder:text-txt-primary" />
+              <input type="email" placeholder="Your Email" class="min-h-[60px] w-full rounded-[50px] border border-border px-5 py-[18px] text-base font-bold placeholder:text-txt-primary" />
+              <textarea placeholder="Write your message here..." class="min-h-[152px] w-full rounded-[20px] border border-border px-5 py-[18px] text-base font-bold placeholder:text-txt-primary"></textarea>
+              <button type="submit" class="btn btn-primary">
+                <span>Send Message</span>
+                <span>Send Message</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

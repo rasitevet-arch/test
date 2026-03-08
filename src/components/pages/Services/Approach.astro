@@ -1,0 +1,68 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  items?: { icon: string; iconAlt: string; title: string; description: string }[];
+}
+
+const {
+  title = "Lorem Ipsum Dolor Sit Amet",
+  description = "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+  image = "https://placehold.co/484x596",
+  items = [
+    {
+      icon: "https://placehold.co/35x35",
+      iconAlt: "Feature 1",
+      title: "Lorem Ipsum Dolor",
+      description: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    },
+    {
+      icon: "https://placehold.co/35x35",
+      iconAlt: "Feature 2",
+      title: "Amet Consectetur",
+      description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    },
+  ],
+} = Astro.props;
+---
+
+<section class="section-content">
+  <div class="section-space-bottom relative z-10">
+    <div class="container">
+      <div class="grid grid-cols-1 gap-y-20 lg:gap-y-[100px] xl:gap-y-[130px]">
+        <div class="grid grid-cols-1 items-center gap-10 md:gap-[60px] lg:grid-cols-2 xl:grid-cols-[1fr_minmax(0,0.8fr)] xl:gap-20">
+          <div class="img-shadow relative z-10 order-2 mx-auto inline-flex max-w-[500px] items-center justify-center lg:max-w-full">
+            <img src={image} alt="service-details-content-img" width="484" height="596" class="max-w-full rounded-[10px] border border-txt-secondary" />
+          </div>
+          <div class="order-1">
+            <div class="mb-[50px]">
+              <h2>{title}</h2>
+              <div>
+                <div class="mt-5">
+                  <p>{description}</p>
+                </div>
+              </div>
+            </div>
+            <ul class="mb-[50px] flex max-w-[560px] flex-col gap-y-6">
+              {items.map((item) => (
+                <li>
+                  <div class="flex items-start gap-4">
+                    <div class="inline-flex h-[60px] w-[60px] items-center justify-center rounded-full bg-accent">
+                      <img src={item.icon} alt={item.iconAlt} width="35" height="35" />
+                    </div>
+                    <div class="flex-1">
+                      <div class="display-heading display-heading-4 mb-4">{item.title}</div>
+                      <p>{item.description}</p>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img src="/assets/img/images/home-5/background-shape-2.svg" alt="background-shape-2" width="174" height="171" class="absolute right-28 top-[60px] -z-10 hidden h-auto max-w-[153px] xxxl:inline-block" />
+  </div>
+</section>

@@ -1,0 +1,79 @@
+---
+interface Props {
+  contactItems?: { icon: string; iconAlt: string; title: string; content: string }[];
+  formAction?: string;
+}
+
+const {
+  contactItems = [
+    {
+      icon: "https://placehold.co/65x60",
+      iconAlt: "Phone",
+      title: "Phone Number",
+      content: "+1 234 567 890",
+    },
+    {
+      icon: "https://placehold.co/65x60",
+      iconAlt: "Email",
+      title: "Email Address",
+      content: "info@example.com",
+    },
+    {
+      icon: "https://placehold.co/65x60",
+      iconAlt: "Location",
+      title: "Our Location",
+      content: "123 Lorem Ipsum St, Dolor Sit",
+    },
+  ],
+  formAction = "#",
+} = Astro.props;
+---
+
+<section class="section-faq">
+  <div class="section-space">
+    <div class="container">
+      <div class="grid grid-cols-1 items-center gap-14 lg:grid-cols-[minmax(0,0.8fr)_1fr]">
+        <ul class="flex flex-col gap-y-[60px]">
+          {contactItems.map((item) => (
+            <li class="flex items-start gap-7">
+              <div class="h-[60px] w-auto">
+                <img src={item.icon} alt={item.iconAlt} width="65" height="60" />
+              </div>
+              <div class="flex-1">
+                <span class="display-heading display-heading-4 mb-4 block">{item.title}</span>
+                <p set:html={item.content} />
+              </div>
+            </li>
+          ))}
+        </ul>
+        <div class="rounded-[10px] bg-white p-10 shadow-custom-1">
+          <h3 class="mb-8">Send us a message</h3>
+          <form action={formAction} method="post" class="grid grid-cols-1 gap-y-6">
+            <div class="grid grid-cols-1 gap-6 xl:grid-cols-2">
+              <div>
+                <label for="contact-name" class="display-heading display-heading-4 mb-4 block">Your Name</label>
+                <input type="text" name="contact-name" id="contact-name" placeholder="Your Name*" class="w-full rounded-[50px] border border-txt-secondary bg-white px-[30px] py-4 text-base leading-none outline-none" required />
+              </div>
+              <div class="">
+                <label for="contact-email" class="display-heading display-heading-4 mb-4 block">Your Email</label>
+                <input type="email" name="contact-email" id="contact-email" placeholder="Email Address*" class="w-full rounded-[50px] border border-txt-secondary bg-white px-[30px] py-4 text-base leading-none outline-none" required />
+              </div>
+            </div>
+            <div class="grid grid-cols-1 gap-6">
+              <div>
+                <label for="contact-message" class="display-heading display-heading-4 mb-4 block">Your Message</label>
+                <textarea name="contact-message" id="contact-message" class="min-h-52 w-full rounded-[15px] border border-txt-secondary bg-white px-[30px] py-4 text-base leading-none outline-none" placeholder="Write us your comment" required></textarea>
+              </div>
+            </div>
+            <div class="flex justify-start gap-6">
+              <button type="submit" class="btn btn-primary">
+                <span>Send Message</span>
+                <span>Send Message</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

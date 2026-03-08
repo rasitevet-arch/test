@@ -1,0 +1,92 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  title?: string;
+  faqs?: { question: string; answer: string }[];
+  hasBg?: boolean;
+}
+
+const {
+  title = "Frequently Asked Questions",
+  faqs = [
+    {
+      question: "Lorem ipsum dolor sit amet?",
+      answer:
+        "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    },
+    {
+      question: "Ut enim ad minim veniam?",
+      answer: "Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    },
+    {
+      question: "Duis aute irure dolor sit amet?",
+      answer: "In reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    },
+    {
+      question: "Excepteur sint occaecat cupidatat?",
+      answer: "Non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    },
+  ],
+  hasBg = false,
+} = Astro.props;
+
+const midpoint = Math.ceil(faqs.length / 2);
+const leftColumn = faqs.slice(0, midpoint);
+const rightColumn = faqs.slice(midpoint);
+---
+
+<section class="section-faq">
+  <div class={hasBg ? "bg-bg-secondary" : ""}>
+    <div class="section-space">
+      <div class="container">
+        <div class="mx-auto mb-10 max-w-2xl text-center md:mb-[60px] lg:mb-20">
+          <h2>{title}</h2>
+        </div>
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <ul class="flex flex-col gap-6">
+            {leftColumn.map((faq, index) => (
+              <li
+                class:list={[
+                  "accordion-item-style-2 accordion-item",
+                  { active: index === 0 },
+                ]}
+              >
+                <div class="accordion-header flex items-center justify-between gap-6">
+                  <button class="flex-1 text-left text-2xl font-semibold">
+                    {faq.question}
+                  </button>
+                  <div class="accordion-icon inline-flex h-[26px] w-[26px] items-center justify-center rounded-full bg-accent text-white">
+                    <Icon name="lets-icons:expand-down" class="h-4 w-4" />
+                  </div>
+                </div>
+                <div class="accordion-body max-w-[826px] opacity-80">
+                  <p class="pt-4">{faq.answer}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <ul class="flex flex-col gap-6">
+            {rightColumn.map((faq) => (
+              <li class="accordion-item-style-2 accordion-item">
+                <div class="accordion-header flex items-center justify-between gap-6">
+                  <button class="flex-1 text-left text-2xl font-semibold">
+                    {faq.question}
+                  </button>
+                  <div class="accordion-icon inline-flex h-[26px] w-[26px] items-center justify-center rounded-full bg-accent text-white">
+                    <Icon name="lets-icons:expand-down" class="h-4 w-4" />
+                  </div>
+                </div>
+                <div class="accordion-body max-w-[826px] opacity-80">
+                  <p class="pt-4">{faq.answer}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="@/scripts/accordion.ts"></script>

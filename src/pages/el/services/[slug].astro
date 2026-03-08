@@ -1,0 +1,40 @@
+---
+import BlockRenderer from "@components/BlockRenderer.astro";
+import Breadcrumb from "@components/global/Breadcrumb.astro";
+import Footer from "@components/global/Footer.astro";
+import Header from "@components/global/Header.astro";
+import Layout from "@layouts/Layout.astro";
+import { getServiceData, localePath } from "@/lib/cms";
+import type { Locale } from "@/types/cms";
+
+const locale = (Astro.currentLocale ?? "en") as Locale;
+const { slug } = Astro.params;
+
+const page = await getServiceData(slug ?? "", locale);
+if (!page) return Astro.redirect("/error-404");
+---
+
+<Layout title={page.title}>
+  <Header isLanding={page.isLanding} />
+
+  <main class="main-wrapper relative overflow-x-clip">
+    {!page.isLanding && (
+      <Breadcrumb
+        title={page.breadcrumbTitle ?? page.title}
+        path={
+          page.breadcrumbPath?.length
+            ? page.breadcrumbPath
+            : [
+                { label: "Αρχική", url: localePath("", locale) },
+                { label: "Υπηρεσίες", url: localePath("services", locale) },
+              ]
+        }
+        current={page.breadcrumbCurrent ?? page.title}
+      />
+    )}
+
+    <BlockRenderer blocks={page.blocks} />
+  </main>
+
+  <Footer isLanding={page.isLanding} />
+</Layout>

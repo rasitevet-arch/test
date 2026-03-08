@@ -1,0 +1,159 @@
+title: "Main Insurance — Αξιόπιστη Προστασία"
+description: "Η Main Insurance παρέχει ολοκληρωμένη ασφαλιστική κάλυψη για ιδιώτες και επιχειρήσεις σε όλη την Ελλάδα."
+isLanding: true
+blocks:
+  - component: hero
+    title: "Προστατεύουμε ό,τι Έχει Αξία"
+    description: "Παρέχουμε εξατομικευμένες ασφαλιστικές λύσεις για ιδιώτες και επιχειρήσεις. Με δεκαετίες εμπειρίας, η Main Insurance είναι ο αξιόπιστος συνεργάτης σας."
+    ctaLink: "/el/contact"
+    ctaLabel: "Ζητήστε Προσφορά"
+    secondaryLink: "/el/about"
+    secondaryLabel: "Μάθετε Περισσότερα"
+    decorativeElements:
+      - image: "/assets/img/abstracts/hero-1-element-1.svg"
+        className: "absolute -right-10 top-20 hidden lg:block"
+      - image: "/assets/img/abstracts/hero-1-element-2.svg"
+        className: "absolute -left-5 bottom-10 hidden lg:block"
+
+  - component: clients
+    title: "Μας Εμπιστεύονται Κορυφαίες Εταιρείες"
+    clients:
+      - image: "/assets/img/icons/icon-colorful-figma.svg"
+        alt: "Εταιρεία Alpha"
+        width: 150
+        height: 40
+      - image: "/assets/img/icons/icon-colorful-slack.svg"
+        alt: "Εταιρεία Beta"
+        width: 150
+        height: 40
+      - image: "/assets/img/icons/icon-colorful-hubspot.svg"
+        alt: "Εταιρεία Gamma"
+        width: 150
+        height: 40
+      - image: "/assets/img/icons/icon-colorful-dropbox.svg"
+        alt: "Εταιρεία Delta"
+        width: 150
+        height: 40
+      - image: "/assets/img/icons/icon-colorful-airtable.svg"
+        alt: "Εταιρεία Epsilon"
+        width: 150
+        height: 40
+      - image: "/assets/img/icons/icon-colorful-gdrive.svg"
+        alt: "Εταιρεία Zeta"
+        width: 150
+        height: 40
+      - image: "/assets/img/icons/icon-colorful-pinterest.svg"
+        alt: "Εταιρεία Eta"
+        width: 150
+        height: 40
+      - image: "/assets/img/icons/icon-colorful-spotify.svg"
+        alt: "Εταιρεία Theta"
+        width: 150
+        height: 40
+      - image: "/assets/img/icons/icon-colorful-tagged.svg"
+        alt: "Εταιρεία Iota"
+        width: 150
+        height: 40
+      - image: "/assets/img/icons/icon-colorful-leadpage.svg"
+        alt: "Εταιρεία Kappa"
+        width: 150
+        height: 40
+
+  - component: features
+    title: "Γιατί να Επιλέξετε τη Main Insurance;"
+    paragraphs:
+      - "Η ομάδα μας αποτελείται από πιστοποιημένους επαγγελματίες με πάνω από 30 χρόνια εμπειρίας στην ελληνική ασφαλιστική αγορά."
+      - "Συνδυάζουμε σύγχρονη τεχνολογία με προσωπική εξυπηρέτηση για να προσφέρουμε ασφαλιστήρια που ταιριάζουν πραγματικά στις ανάγκες σας."
+    buttonLink: "/el/about"
+    buttonLabel: "Ανακαλύψτε την Ιστορία μας"
+    image:
+      url: "/assets/img/abstracts/content-shape-1.svg"
+      alt: "Ασφαλιστικός σύμβουλος σε συνάντηση με πελάτη"
+      width: 640
+      height: 480
+
+  - component: stats
+    title: "Η Επίδρασή μας σε Αριθμούς"
+    facts:
+      - value: "5.000+"
+        label: "Ενεργά Συμβόλαια"
+      - value: "30+"
+        label: "Χρόνια Εμπειρίας"
+      - value: "98%"
+        label: "Διατήρηση Πελατών"
+      - value: "24/7"
+        label: "Υποστήριξη Αποζημιώσεων"
+
+  - component: services
+    title: "Οι Ασφαλιστικές μας Υπηρεσίες"
+    services:
+      - icon: "/assets/img/icons/service-icon-1.svg"
+        name: "Ασφάλεια Αυτοκινήτου"
+        description: "Ολοκληρωμένη κάλυψη οχημάτων με ανταγωνιστικά ασφάλιστρα και γρήγορη διεκπεραίωση αποζημιώσεων."
+        link: "/el/services/web-development"
+      - icon: "/assets/img/icons/service-icon-2.svg"
+        name: "Ασφάλεια Κατοικίας"
+        description: "Προστατέψτε το σπίτι και τα υπάρχοντά σας από φωτιά, κλοπή, φυσικές καταστροφές και άλλα."
+        link: "/el/services/web-development"
+      - icon: "/assets/img/icons/service-icon-3.svg"
+        name: "Ασφάλεια Υγείας"
+        description: "Ατομικά και ομαδικά προγράμματα υγείας με πρόσβαση στους κορυφαίους παρόχους υγείας της Ελλάδας."
+        link: "/el/services/web-development"
+      - icon: "/assets/img/images/home-8/service-icon-1.svg"
+        name: "Ασφάλεια Επιχειρήσεων"
+        description: "Εξατομικευμένη εμπορική κάλυψη που περιλαμβάνει αστική ευθύνη, περιουσία και παροχές εργαζομένων."
+        link: "/el/services/web-development"
+
+  - component: testimonials
+    title: "Τι Λένε οι Πελάτες μας"
+    testimonials:
+      - quote: "Η Main Insurance έκανε όλη τη διαδικασία απλή. Η ομάδα τους χειρίστηκε το επιχειρηματικό μας συμβόλαιο με απίστευτο επαγγελματισμό."
+        name: "Μαρία Παπαδοπούλου"
+        role: "CEO, TechStart Greece"
+        avatar: "/assets/img/images/home-1/content-icon-1.svg"
+      - quote: "Μετά από ένα τροχαίο, διεκπεραίωσαν την αποζημίωσή μου σε 48 ώρες. Δεν πίστευα πόσο γρήγορο και ανώδυνο ήταν."
+        name: "Νίκος Γεωργίου"
+        role: "Ιδιώτης Πελάτης"
+        avatar: "/assets/img/images/home-1/content-icon-2.svg"
+      - quote: "Είμαστε με τη Main Insurance εδώ και 15 χρόνια. Η εμπειρογνωμοσύνη τους στην εμπορική κάλυψη είναι ασυναγώνιστη."
+        name: "Ελένη Δημητρίου"
+        role: "CFO, Aegean Logistics"
+        avatar: "/assets/img/images/home-1/content-icon-3.svg"
+      - quote: "Το πρόγραμμα ασφάλειας υγείας μας εξοικονόμησε χιλιάδες. Η κάλυψη είναι ολοκληρωμένη και η ομάδα υποστήριξης πάντα διαθέσιμη."
+        name: "Κώστας Μαρινάκης"
+        role: "Διευθυντής, Olympus Hotels"
+        avatar: "/assets/img/images/home-1/feature-icon-1.svg"
+      - quote: "Η μετάβαση στη Main Insurance ήταν η καλύτερη απόφαση για τον στόλο μας. Κατανοούν τα logistics όσο κανένας άλλος μεσίτης."
+        name: "Άννα Θεοδώρου"
+        role: "Υπεύθυνη Λειτουργιών, FastTrack"
+        avatar: "/assets/img/images/home-1/feature-icon-2.svg"
+
+  - component: faq
+    title: "Συχνές Ερωτήσεις"
+    faqs:
+      - question: "Πώς μπορώ να πάρω προσφορά;"
+        answer: "Απλά επισκεφθείτε τη σελίδα επικοινωνίας ή καλέστε μας απευθείας. Θα αξιολογήσουμε τις ανάγκες σας και θα σας δώσουμε εξατομικευμένη προσφορά εντός 24 ωρών."
+      - question: "Τι είδη ασφαλειών προσφέρετε;"
+        answer: "Προσφέρουμε ασφάλεια αυτοκινήτου, κατοικίας, υγείας, ζωής, επιχειρήσεων και θαλάσσια ασφάλεια. Παρέχουμε επίσης εξειδικευμένα πακέτα για επαγγελματίες και ελεύθερους επαγγελματίες."
+      - question: "Πόσο διαρκεί η διαδικασία αποζημίωσης;"
+        answer: "Οι περισσότερες αποζημιώσεις ολοκληρώνονται σε 5-10 εργάσιμες ημέρες. Οι επείγουσες αποζημιώσεις, όπως τροχαία ατυχήματα, διεκπεραιώνονται εντός 48 ωρών."
+      - question: "Μπορώ να διαχειριστώ το συμβόλαιό μου online;"
+        answer: "Ναι, η πύλη πελατών μας σάς επιτρέπει να βλέπετε τα συμβόλαιά σας, να υποβάλλετε αποζημιώσεις και να κατεβάζετε έγγραφα ανά πάσα στιγμή."
+    hasBg: false
+
+  - component: contactForm
+    title: "Επικοινωνήστε Μαζί μας"
+    description: "Έχετε ερωτήσεις; Επικοινωνήστε με την ομάδα μας και θα σας απαντήσουμε εντός μίας εργάσιμης ημέρας."
+    contactItems:
+      - icon: "lets-icons:phone"
+        label: "Τηλέφωνο"
+        value: "+30 210 1234 567"
+        href: "tel:+302101234567"
+      - icon: "lets-icons:e-mail"
+        label: "Email"
+        value: "info@maininsurance.gr"
+        href: "mailto:info@maininsurance.gr"
+      - icon: "lets-icons:map"
+        label: "Γραφείο"
+        value: "Πλατεία Συντάγματος 123, Αθήνα 10563"
+        href: ""

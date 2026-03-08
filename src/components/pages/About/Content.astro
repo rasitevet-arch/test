@@ -1,0 +1,57 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  stats?: { prefix?: string; value: string; suffix: string; label: string }[];
+  buttonLink?: string;
+  buttonLabel?: string;
+}
+
+const {
+  title = "Lorem Ipsum Dolor Sit Amet Consectetur",
+  description = "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+  image = "https://placehold.co/530x553",
+  stats = [
+    { value: "120", suffix: "+", label: "Lorem Ipsum" },
+    { value: "95", suffix: "%", label: "Dolor Sit" },
+    { value: "10", suffix: "K", label: "Amet Elit" },
+  ],
+  buttonLink = "#",
+  buttonLabel = "Learn More",
+} = Astro.props;
+---
+
+<section class="section-content">
+  <div class="section-space relative z-10">
+    <div class="container">
+      <div class="grid grid-cols-1 gap-y-20 lg:gap-y-[100px] xl:gap-y-[130px]">
+        <div class="grid grid-cols-1 items-center gap-10 md:gap-[60px] lg:grid-cols-2 xl:grid-cols-[minmax(0,0.8fr)_1fr] xl:gap-20">
+          <div class="img-shadow relative z-10 order-2 mx-auto inline-flex max-w-[500px] items-center justify-center lg:order-1 lg:max-w-full">
+            <img src={image} alt="content-img" width="530" height="553" class="max-w-full rounded-[10px] border border-txt-secondary" />
+          </div>
+          <div class="order-1 lg:order-2">
+            <div class="mb-[50px]">
+              <h2 class="section-title">{title}</h2>
+              <p class="mt-5">{description}</p>
+            </div>
+            <ul class="mb-[50px] grid grid-cols-1 justify-between gap-x-10 gap-y-10 sm:grid-cols-2 md:grid-cols-3 lg:flex lg:flex-wrap xl:flex-nowrap">
+              {stats.map((stat) => (
+                <li class="text-center">
+                  <div class="display-heading display-heading-2 mb-1" data-module="countup">
+                    {stat.prefix}<span class="start-number" data-countup-number={stat.value}>{stat.value}</span>{stat.suffix}
+                  </div>
+                  <span>{stat.label}</span>
+                </li>
+              ))}
+            </ul>
+            <a href={buttonLink} class="btn btn-primary">{buttonLabel}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img src="/assets/img/images/home-5/background-shape-2.svg" alt="background-shape-2" width="174" height="171" class="absolute left-28 top-[60px] -z-10 hidden h-auto max-w-[153px] xxxl:inline-block" />
+  </div>
+</section>
+
+<script src="@/scripts/countup.ts"></script>

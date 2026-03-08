@@ -1,0 +1,72 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  title?: string;
+  services?: { icon: string; name: string; description: string; link: string }[];
+}
+
+const {
+  title = "Lorem Ipsum Dolor Sit Amet Consectetur",
+  services = [
+    {
+      icon: "https://placehold.co/55x55",
+      name: "Lorem Ipsum",
+      description: "Consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+      link: "#",
+    },
+    {
+      icon: "https://placehold.co/55x55",
+      name: "Dolor Sit Amet",
+      description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+      link: "#",
+    },
+    {
+      icon: "https://placehold.co/55x55",
+      name: "Adipiscing Elit",
+      description: "Duis aute irure dolor in reprehenderit in voluptate velit esse.",
+      link: "#",
+    },
+  ],
+} = Astro.props;
+---
+
+<section class="section-service" id="service">
+  <div class="">
+    <div class="section-space">
+      <div class="container">
+        <div class="mx-auto mb-10 max-w-3xl text-center md:mb-[60px] lg:mb-20">
+          <h2>{title}</h2>
+        </div>
+        <ul class="grid grid-cols-1 gap-px overflow-hidden rounded-[5px] border border-border bg-border md:grid-cols-2 xl:grid-cols-3">
+          {services.map((service) => (
+            <li>
+              <div class="group">
+                <div class="bg-bg-secondary p-[30px]">
+                  <div class="h-14 w-14">
+                    <img src={service.icon} alt={service.name} width="55" height="55" />
+                  </div>
+                  <div class="mt-[30px]">
+                    <div class="display-heading display-heading-4 mb-4">{service.name}</div>
+                    <p class="mb-[30px]">{service.description}</p>
+                    <a href={service.link} class="inline-block">
+                      <span class="transition-default font-normal group-hover:font-semibold">Read More</span>
+                      <div class="relative inline-flex items-center justify-center overflow-hidden">
+                        <span class="transition-default translate-x-0 group-hover:translate-x-full">
+                          <Icon name="lets-icons:arrow-right" class="h-5 w-5" />
+                        </span>
+                        <span class="transition-default absolute -translate-x-full group-hover:translate-x-0">
+                          <Icon name="lets-icons:arrow-right" class="h-5 w-5" />
+                        </span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

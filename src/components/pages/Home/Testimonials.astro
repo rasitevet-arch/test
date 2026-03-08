@@ -1,0 +1,99 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  title?: string;
+  testimonials?: { quote: string; name: string; role: string; avatar: string }[];
+}
+
+const {
+  title = "Lorem Ipsum Dolor Sit Amet",
+  testimonials = [
+    {
+      quote:
+        "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      name: "John Doe",
+      role: "CEO",
+      avatar: "https://placehold.co/55x55",
+    },
+    {
+      quote:
+        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
+      name: "Jane Smith",
+      role: "CTO",
+      avatar: "https://placehold.co/55x55",
+    },
+    {
+      quote:
+        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla.",
+      name: "Bob Wilson",
+      role: "Designer",
+      avatar: "https://placehold.co/55x55",
+    },
+  ],
+} = Astro.props;
+---
+
+<section class="section-testimonial" id="testimonial">
+  <div class="section-space">
+    <div class="container">
+      <div class="mx-auto mb-10 max-w-2xl text-center md:mb-[60px] lg:mb-20">
+        <h2>{title}</h2>
+      </div>
+    </div>
+    <div>
+      <div class="testimonial-slider swiper">
+        <div class="swiper-wrapper">
+          {testimonials.map((t) => (
+            <div class="swiper-slide">
+              <div class="rounded-md border border-[#DBDBDB] p-9">
+                <div class="inline-flex gap-x-1 text-accent">
+                  {Array.from({ length: 5 }).map(() => (
+                    <Icon name="lets-icons:star-fill" class="h-6 w-6" />
+                  ))}
+                </div>
+                <blockquote class="my-5 text-txt-secondary">{t.quote}</blockquote>
+                <div class="flex items-center gap-2.5">
+                  <div class="h-14 w-14 overflow-hidden rounded-full">
+                    <img src={t.avatar} alt={t.name} width="55" height="55" class="h-full w-full object-cover" />
+                  </div>
+                  <div class="flex-1">
+                    <span class="block font-bold text-txt-secondary">{t.name}</span>
+                    <span class="text-sm">{t.role}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="testimonial-slider-reverse swiper mt-10">
+        <div class="swiper-wrapper">
+          {testimonials.map((t) => (
+            <div class="swiper-slide">
+              <div class="rounded-md border border-[#DBDBDB] p-9">
+                <div class="inline-flex gap-x-1 text-accent">
+                  {Array.from({ length: 5 }).map(() => (
+                    <Icon name="lets-icons:star-fill" class="h-6 w-6" />
+                  ))}
+                </div>
+                <blockquote class="my-5 text-txt-secondary">{t.quote}</blockquote>
+                <div class="flex items-center gap-2.5">
+                  <div class="h-14 w-14 overflow-hidden rounded-full">
+                    <img src={t.avatar} alt={t.name} width="55" height="55" class="h-full w-full object-cover" />
+                  </div>
+                  <div class="flex-1">
+                    <span class="block font-bold text-txt-secondary">{t.name}</span>
+                    <span class="text-sm">{t.role}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="@/scripts/swiper.ts"></script>

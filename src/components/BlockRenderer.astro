@@ -1,0 +1,175 @@
+---
+import AboutContent from "@components/pages/About/Content.astro";
+import Cta from "@components/pages/About/Cta.astro";
+import Team from "@components/pages/About/Team.astro";
+import Values from "@components/pages/About/Values.astro";
+import Form from "@components/pages/Contact/Form.astro";
+import MapComponent from "@components/pages/Contact/Map.astro";
+import Clients from "@components/pages/Home/Clients.astro";
+import Contact from "@components/pages/Home/Contact.astro";
+import HomeFaq from "@components/pages/Home/Faq.astro";
+import Features from "@components/pages/Home/Features.astro";
+import Hero from "@components/pages/Home/Hero.astro";
+import Services from "@components/pages/Home/Services.astro";
+import Stats from "@components/pages/Home/Stats.astro";
+import Testimonials from "@components/pages/Home/Testimonials.astro";
+import Approach from "@components/pages/Services/Approach.astro";
+import Description from "@components/pages/Services/Description.astro";
+import Marquee from "@components/pages/Services/Marquee.astro";
+import type { Block } from "@/content/config";
+
+interface Props {
+  blocks: Block[];
+}
+
+const { blocks } = Astro.props;
+---
+
+{blocks.map((block) => {
+  switch (block.component) {
+    case "hero":
+      return (
+        <Hero
+          title={block.title}
+          description={block.description}
+          ctaLink={block.ctaLink}
+          ctaLabel={block.ctaLabel}
+          secondaryLink={block.secondaryLink}
+          secondaryLabel={block.secondaryLabel}
+          heroElements={block.decorativeElements.map((el) => ({
+            src: el.image,
+            alt: "",
+            width: 0,
+            height: 0,
+            class: el.className,
+          }))}
+        />
+      );
+
+    case "clients":
+      return (
+        <Clients
+          title={block.title}
+          clients={block.clients.map((c) => ({
+            src: c.image,
+            alt: c.alt,
+            width: c.width,
+            height: c.height,
+          }))}
+        />
+      );
+
+    case "features":
+      return (
+        <Features
+          title={block.title}
+          paragraphs={block.paragraphs}
+          buttonLink={block.buttonLink}
+          buttonLabel={block.buttonLabel}
+          image={{
+            src: block.image.url,
+            alt: block.image.alt,
+            width: block.image.width,
+            height: block.image.height,
+          }}
+        />
+      );
+
+    case "stats":
+      return <Stats title={block.title} facts={block.facts} />;
+
+    case "services":
+      return <Services title={block.title} services={block.services} />;
+
+    case "testimonials":
+      return (
+        <Testimonials
+          title={block.title}
+          testimonials={block.testimonials}
+        />
+      );
+
+    case "faq":
+      return (
+        <HomeFaq title={block.title} faqs={block.faqs} hasBg={block.hasBg} />
+      );
+
+    case "contactForm":
+      return (
+        <Contact
+          title={block.title}
+          description={block.description}
+          contactItems={block.contactItems}
+        />
+      );
+
+    case "values":
+      return <Values title={block.title} values={block.values} />;
+
+    case "aboutContent":
+      return (
+        <AboutContent
+          title={block.title}
+          description={block.description}
+          image={block.image}
+          stats={block.stats}
+          buttonLink={block.buttonLink}
+          buttonLabel={block.buttonLabel}
+        />
+      );
+
+    case "team":
+      return (
+        <Team
+          title={block.title}
+          buttonLink={block.buttonLink}
+          buttonLabel={block.buttonLabel}
+          members={block.members}
+        />
+      );
+
+    case "cta":
+      return <Cta title={block.title} buttonLink={block.buttonLink} />;
+
+    case "contactInfo":
+      return (
+        <Form
+          contactItems={block.contactItems}
+          formAction={block.formAction}
+        />
+      );
+
+    case "map":
+      return <MapComponent mapSrc={block.embedUrl} />;
+
+    case "serviceDescription":
+      return (
+        <Description
+          title={block.title}
+          description={block.description}
+          image={block.image}
+          approachTitle={block.approachTitle}
+          approachDescription={block.approachDescription}
+          strategyTitle={block.strategyTitle}
+          strategyDescription={block.strategyDescription}
+          checklist={block.checklist}
+        />
+      );
+
+    case "serviceApproach":
+      return (
+        <Approach
+          title={block.title}
+          description={block.description}
+          image={block.image}
+          items={block.items}
+        />
+      );
+
+    case "marquee":
+      return <Marquee items={block.items} />;
+
+    default:
+      return null;
+  }
+})}

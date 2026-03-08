@@ -1,0 +1,31 @@
+title: "Contact Us"
+description: "Get in touch with Main Insurance. We're here to answer your questions and help you find the right coverage."
+isLanding: false
+breadcrumbTitle: "Contact Us"
+breadcrumbCurrent: "Contact"
+breadcrumbPath:
+  - label: "Home"
+    url: "/"
+blocks:
+  - component: contactInfo
+    contactItems:
+      - icon: "/assets/img/images/home-1/contact-icon-1.svg"
+        iconAlt: "Phone icon"
+        title: "Call Us"
+        content: "+30 210 1234 567"
+      - icon: "/assets/img/images/home-1/contact-icon-2.svg"
+        iconAlt: "Email icon"
+        title: "Email Us"
+        content: "info@maininsurance.gr"
+      - icon: "/assets/img/images/home-1/contact-icon-3.svg"
+        iconAlt: "Location icon"
+        title: "Visit Us"
+        content: "123 Syntagma Square, Athens 10563, Greece"
+    formAction: "/api/contact"
+
+  - component: map
+    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.2!2d23.7348!3d37.9755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM3fCsDU4JzMyLjAiTiAyM8KwNDQnMDUuMyJF!5e0!3m2!1sen!2sgr"
+
+  - component: cta
+    title: "Let's build your protection plan together."
+    buttonLink: "tel:+302101234567"

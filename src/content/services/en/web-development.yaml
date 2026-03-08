@@ -1,0 +1,72 @@
+title: "Business Insurance"
+description: "Comprehensive commercial insurance solutions tailored for Greek businesses of all sizes."
+isLanding: false
+breadcrumbTitle: "Business Insurance"
+breadcrumbCurrent: "Business Insurance"
+breadcrumbPath:
+  - label: "Home"
+    url: "/"
+  - label: "Services"
+    url: "/services"
+blocks:
+  - component: marquee
+    items:
+      - "Commercial Property"
+      - "General Liability"
+      - "Professional Indemnity"
+      - "Employee Benefits"
+      - "Cyber Insurance"
+      - "Fleet Coverage"
+
+  - component: serviceDescription
+    title: "Tailored Protection for Your Business"
+    description: "Whether you're a startup, SME, or large enterprise, Main Insurance designs commercial packages that cover your unique risks. From property and liability to employee welfare and cyber threats, we've got you covered."
+    image: "/assets/img/abstracts/content-shape-1.svg"
+    approachTitle: "Our Approach"
+    approachDescription: "We start by understanding your industry, operations, and risk profile. Then we craft a multi-layered coverage strategy that protects your assets, your people, and your reputation."
+    strategyTitle: "Why Businesses Choose Us"
+    strategyDescription: "Our dedicated corporate team has placed policies for over 500 businesses across Greece, from hospitality to logistics to tech."
+    checklist:
+      - "Comprehensive risk assessment"
+      - "Multi-provider policy comparison"
+      - "Dedicated account manager"
+      - "Annual coverage review"
+      - "24/7 claims hotline"
+      - "Regulatory compliance guidance"
+
+  - component: serviceApproach
+    title: "How We Work With You"
+    description: "Our structured process ensures no risk is overlooked and every euro of your premium delivers value."
+    image: "/assets/img/abstracts/content-shape-1.svg"
+    items:
+      - icon: "/assets/img/images/home-4/content-icon-1.svg"
+        iconAlt: "Step 1"
+        title: "Risk Assessment"
+        description: "We conduct a thorough audit of your business operations, assets, and potential liabilities."
+      - icon: "/assets/img/images/home-4/content-icon-2.svg"
+        iconAlt: "Step 2"
+        title: "Policy Design"
+        description: "We compare offerings from 15+ providers and build a package optimized for coverage and cost."
+      - icon: "/assets/img/images/home-4/content-icon-3.svg"
+        iconAlt: "Step 3"
+        title: "Implementation"
+        description: "We handle all paperwork and provider coordination so you can focus on running your business."
+      - icon: "/assets/img/images/home-1/content-icon-1.svg"
+        iconAlt: "Step 4"
+        title: "Ongoing Support"
+        description: "Annual reviews, claims management, and a direct line to your account manager year-round."
+
+  - component: faq
+    title: "Business Insurance FAQ"
+    faqs:
+      - question: "What industries do you serve?"
+        answer: "We serve all industries including hospitality, logistics, technology, retail, healthcare, and professional services."
+      - question: "Can you cover multiple locations?"
+        answer: "Yes, we regularly handle multi-site policies across Greece and can coordinate international coverage for businesses with operations abroad."
+      - question: "Do you offer employee benefits packages?"
+        answer: "Absolutely. We design group health, life, and pension plans as part of your overall business insurance strategy."
+    hasBg: true
+
+  - component: cta
+    title: "Let's protect your business together."
+    buttonLink: "/contact"
